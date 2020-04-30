@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30011.22
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyBooks.Wpf", "MyBooks.Wpf\MyBooks.Wpf.csproj", "{54DE9562-90D6-4C05-921E-14EB97060BD9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyBooks.BLL", "MyBooks.BLL\MyBooks.BLL.csproj", "{D86DA165-104F-49CB-9BFD-D13C26FC638C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{54DE9562-90D6-4C05-921E-14EB97060BD9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{54DE9562-90D6-4C05-921E-14EB97060BD9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{54DE9562-90D6-4C05-921E-14EB97060BD9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{54DE9562-90D6-4C05-921E-14EB97060BD9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D86DA165-104F-49CB-9BFD-D13C26FC638C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D86DA165-104F-49CB-9BFD-D13C26FC638C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D86DA165-104F-49CB-9BFD-D13C26FC638C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D86DA165-104F-49CB-9BFD-D13C26FC638C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {ABAD5091-6162-4593-B366-D72FA8C51AC2}
+	EndGlobalSection
+EndGlobal
