@@ -5,7 +5,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\MyBooks.Contracts\MyBooks.Contracts.csproj" />
+    <None Remove="Models\IAuthor.cs~RFc01efb.TMP" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="ViewModels\" />
   </ItemGroup>
 
 </Project>

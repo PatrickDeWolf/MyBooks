@@ -1,0 +1,9 @@
+﻿	public interface IBook<ReadStatusEnum>
+	{
+
+
+		string Title { get; set; }
+
+		ReadStatusEnum ReadStatus { get; set; }
+
+	} // end Books

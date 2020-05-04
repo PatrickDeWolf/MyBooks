@@ -1,0 +1,1 @@
+﻿De folder Helpers zal classes bevatten welke het schrijven dubbele code zal beperken

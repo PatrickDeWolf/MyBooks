@@ -1,10 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace MyBooks.BLL.Models
+﻿namespace MyBooks.BLL
 {
 	public enum ReadStatusEnum
 	{
-	}
-}
+		Unread,
+		Reading,
+		Read
+
+	} // end ReadStatusEnum
+
+} // end namespace
