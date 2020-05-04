@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>MyBooks.BLL</name>
+    </assembly>
+    <members>
+        <member name="T:MyBooks.BLL.ApprectiationEnum">
+            <summary>
+            De enumerations voor de apprectiaties van een boek
+            </summary>
+        </member>
+        <member name="P:MyBooks.BLL.PublisherModel.Name">
+            <summary>
+            De naam van de uitgever
+            </summary>
+        </member>
+        <member name="P:MyBooks.BLL.PublisherModel.Website">
+            <summary>
+            De url van de website
+            </summary>
+            <example>http://www.starwars.com</example>
+            <remarks>hier kan je opmerkingen vermelden</remarks>
+        </member>
+    </members>
+</doc>

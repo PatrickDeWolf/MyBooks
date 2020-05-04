@@ -7,6 +7,7 @@ namespace MyBooks.Contracts
 	public interface IBook
 	{
 
+		string Title { get; set; }
 
 	} // end Books
 

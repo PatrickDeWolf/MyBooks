@@ -4,7 +4,7 @@ namespace MyBooks.Contracts
 {
 	public interface IPublisher
 	{
-		string NAme { get; set; }
+		string Name { get; set; }
 
 		string Website { get; set; }
 

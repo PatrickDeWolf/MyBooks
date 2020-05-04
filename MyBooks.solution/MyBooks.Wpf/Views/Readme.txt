@@ -1,1 +1,0 @@
-﻿De folder Views zal alle scheremn voor de Userinterface bevatten
