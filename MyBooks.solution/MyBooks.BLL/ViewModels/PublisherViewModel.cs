@@ -18,9 +18,10 @@ namespace MyBooks.BLL
 
 		// properties voor binding met de view
 
-		public string PageTitle
+		public  string PageTitle
 		{
 			get { return "Publisher"; }
+
 		}
 
 
@@ -29,6 +30,7 @@ namespace MyBooks.BLL
 		public PublisherModel Publisher
 		{
 			get { return _publisher ?? (_publisher = new PublisherModel()); }
+
 			set { _publisher = value; }
 		}
 
@@ -54,13 +56,14 @@ namespace MyBooks.BLL
 		// private methods
 		private void DesignData()
 		{
+
 			Publisher = new PublisherModel
 			{
 				Name = "Micrsoft Press", Website = "http://www.microsoft.be",
 				Books=new List<IBook>()
 				{
-					new BookModel() { Title="OOP: Building Reusable Components With VB.NET"},
-					new BookModel(){Title = " MvvM in Xaramin.Forms"}
+					new BookModel() { Title="OOP: Building Reusable Components With VB.NET",FrontCover = "../Assets/DesignDataImage1.jpg"},
+					new BookModel(){Title = " MvvM in Xaramin.Forms", FrontCover = "../Assets/DesignDataImage2.png"}
 				}
 			};
 		}

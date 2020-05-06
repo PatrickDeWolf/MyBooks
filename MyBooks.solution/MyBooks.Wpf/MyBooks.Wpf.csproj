@@ -97,14 +97,16 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Assets\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\MyBooks.BLL\MyBooks.BLL.csproj">
       <Project>{de331848-c61e-4105-b17a-4ff302f298e5}</Project>
       <Name>MyBooks.BLL</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\DesignDataImage1.jpg" />
+    <Resource Include="Assets\DesignDataImage2.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

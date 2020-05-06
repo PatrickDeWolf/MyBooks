@@ -7,14 +7,15 @@ using MyBooks.BLL.Annotations;
 
 namespace MyBooks.BLL
 {
-	public class ModelBase:INotifyPropertyChanged
+	public abstract class ModelBase:INotifyPropertyChanged
 	{
 		public event PropertyChangedEventHandler PropertyChanged;
 
 		[NotifyPropertyChangedInvocator]
-		protected virtual void RaisePropertyChanged([CallerMemberName] string propertyName = null)
+		protected void RaisePropertyChanged([CallerMemberName] string propertyName = null)
 		{
 			PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
 		}
+
 	}
 }

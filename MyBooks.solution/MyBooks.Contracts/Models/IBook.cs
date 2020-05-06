@@ -9,6 +9,8 @@ namespace MyBooks.Contracts
 
 		string Title { get; set; }
 
+		string FrontCover { get; set; }
+
 	} // end Books
 
 } // end namespace

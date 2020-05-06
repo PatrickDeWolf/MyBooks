@@ -20,6 +20,32 @@ namespace MyBooks.BLL
 			}
 		}
 
+
+		private string _frontCover;
+		public string FrontCover
+		{
+			get
+			{
+				return _frontCover;
+			}
+			set
+			{
+				if (_frontCover == value) return;
+
+				_frontCover = value;
+				RaisePropertyChanged();
+			}
+		}// end FrontCover
+
+
+		public override string ToString()
+		{
+			//return base.ToString();
+			return Title;
+
+		}
+
+
 	} // end BookModel
 
 } // end namespace
