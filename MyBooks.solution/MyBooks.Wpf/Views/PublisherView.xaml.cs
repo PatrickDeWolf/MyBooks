@@ -20,18 +20,11 @@ namespace MyBooks.Wpf.Views
 	/// </summary>
 	public partial class PublisherView : Window
 	{
-		//private PublisherViewModel vm;
+
 
 		public PublisherView()
 		{
 			InitializeComponent();
-
-		//	vm = new PublisherViewModel();
-
-			//// Koppelen van het ViewModel aan de View
-			//this.DataContext = vm;
-		//	this.DataContext=new PublisherViewModel();
-
 
 
 		}
@@ -39,8 +32,6 @@ namespace MyBooks.Wpf.Views
 
 		private void SaveButton_OnClick(object sender, RoutedEventArgs e)
 		{
-			//vm.Publisher.Website = "http://www.microsoft.com";
-			//((PublisherViewModel)DataContext).Publisher.Website="http://www.microsoft.com";
 
 
 		}

@@ -5,7 +5,7 @@
 	/// </summary>
 	public enum ApprectiationEnum
 	{
-		VeryBAd,
+		VeryBad,
 		Bad,
 		Averege,
 		Good,

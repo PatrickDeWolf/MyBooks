@@ -6,23 +6,23 @@ using MyBooks.Contracts;
 
 namespace MyBooks.BLL
 {
-	public class PublisherModel : ModelBase,IPublisher//,INotifyPropertyChanged
+	public class PublisherModel : ModelBase,IPublisher
 	{
-		//private int _publisherId;
-		//public int PublisherId
-		//{
-		//	get
-		//	{
-		//		return _publisherId;
-		//	}
-		//	private set
-		//	{
-		//		if (_publisherId == value) return;
+		private int _publisherId;
+		public int PublisherId
+		{
+			get
+			{
+				return _publisherId;
+			}
+			private set
+			{
+				if (_publisherId == value) return;
 
-		//		_publisherId = value;
-		//		RaisePropertyChanged(nameof(PublisherId));
-		//	}
-		//}// end PublisherId
+				_publisherId = value;
+				RaisePropertyChanged(nameof(PublisherId));
+			}
+		}// end PublisherId
 
 
 		private string _name;
@@ -106,19 +106,6 @@ namespace MyBooks.BLL
 		//}
 
 
-
-		// implementatie van de INotifyPropertyChanged
-		//public event PropertyChangedEventHandler PropertyChanged;
-
-		//public void RaisePropertyChanged(string propertyname)
-		//{
-
-		//	if (PropertyChanged!=null)
-		//	{
-		//		PropertyChanged(this, new PropertyChangedEventArgs(propertyname)); 
-		//	}
-
-		//}
 
 
 

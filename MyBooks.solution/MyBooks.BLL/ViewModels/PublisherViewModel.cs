@@ -4,17 +4,20 @@ using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Security.Cryptography;
 using System.Text;
+using GalaSoft.MvvmLight;
 using MyBooks.BLL.Annotations;
 using MyBooks.Contracts;
 
 
 namespace MyBooks.BLL
 {
-	public class PublisherViewModel
+	public class PublisherViewModel:ViewModelBase
 
 	{
 
 		// lokale variabelen voor DataService
+		private IDataService _dataService;
+
 
 		// properties voor binding met de view
 
@@ -34,6 +37,22 @@ namespace MyBooks.BLL
 			set { _publisher = value; }
 		}
 
+		// List property met alle publishers
+		private List<IPublisher> _publishers;
+		public List<IPublisher> Publishers
+		{
+			get
+			{
+				return _publishers;
+			}
+			set
+			{
+				if (_publishers == value) return;
+
+				_publishers = value;
+				RaisePropertyChanged();
+			}
+		}// end PunlishersList
 
 
 		// MVVM Commands
@@ -41,8 +60,10 @@ namespace MyBooks.BLL
 
 
 		// constructor
-		public PublisherViewModel()
+		public PublisherViewModel(IDataService dataservice)
 		{
+			_dataService = dataservice;
+
 			DesignData();
 
 		}
@@ -54,18 +75,22 @@ namespace MyBooks.BLL
 		}
 
 		// private methods
-		private void DesignData()
+		private async void DesignData()
 		{
 
-			Publisher = new PublisherModel
-			{
-				Name = "Micrsoft Press", Website = "http://www.microsoft.be",
-				Books=new List<IBook>()
-				{
-					new BookModel() { Title="OOP: Building Reusable Components With VB.NET",FrontCover = "../Assets/DesignDataImage1.jpg"},
-					new BookModel(){Title = " MvvM in Xaramin.Forms", FrontCover = "../Assets/DesignDataImage2.png"}
-				}
-			};
+			Publishers = await _dataService.GetPublishers();
+
+			Publisher = Publishers[1] as PublisherModel;
+
+			//Publisher = new PublisherModel
+			//{
+			//	Name = "Micrsoft Press", Website = "http://www.microsoft.be",
+			//	Books=new List<IBook>()
+			//	{
+			//		new BookModel() { Title="OOP: Building Reusable Components With VB.NET",FrontCover = "../Assets/DesignDataImage1.jpg"},
+			//		new BookModel(){Title = " MvvM in Xaramin.Forms", FrontCover = "../Assets/DesignDataImage2.png"}
+			//	}
+			//};
 		}
 
 

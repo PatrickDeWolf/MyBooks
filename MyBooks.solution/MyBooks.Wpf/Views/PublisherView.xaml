@@ -3,16 +3,16 @@
 	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
 	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
 	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:ei="http://schemas.microsoft.com/expression/2010/interactions"
 	xmlns:local="clr-namespace:MyBooks.Wpf.Views"
 	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-	xmlns:viewmodels="clr-namespace:MyBooks.BLL;assembly=MyBooks.BLL"
 	Title="{Binding PageTitle, Mode=OneWay}"
 	Width="800"
 	Height="450"
+	DataContext="{Binding PublisherVm, Source={StaticResource Locator}}"
 	mc:Ignorable="d">
-	<Window.Resources>
-		<viewmodels:PublisherViewModel x:Key="PublisherVm" />
-	</Window.Resources>
+
+
 
 	<Grid>
 		<Grid.RowDefinitions>
@@ -29,8 +29,8 @@
 
 		<Grid.ColumnDefinitions>
 			<ColumnDefinition Width="10" />
-			<ColumnDefinition Width="1*" />
-			<ColumnDefinition Width="1*" />
+			<ColumnDefinition Width="0.75*" />
+			<ColumnDefinition Width="3*" />
 			<ColumnDefinition Width="10" />
 		</Grid.ColumnDefinitions>
 
@@ -40,38 +40,43 @@
 			Grid.ColumnSpan="2"
 			HorizontalAlignment="Center"
 			VerticalAlignment="Center"
-			Content="{Binding PageTitle, Source={StaticResource PublisherVm}, Mode=OneWay}" />
+			Content="{Binding PageTitle, Mode=OneWay}" />
 
 		<TextBlock
 			Grid.Row="2"
 			Grid.Column="1"
+			VerticalAlignment="Center"
 			Text="Name:" />
 
 		<TextBox
 			Grid.Row="2"
 			Grid.Column="2"
-			Text="{Binding Publisher.Name, Mode=TwoWay, Source={StaticResource PublisherVm}}" />
+			VerticalAlignment="Center"
+			Text="{Binding Publisher.Name, Mode=TwoWay}" />
 
 		<Label
 			Grid.Row="3"
 			Grid.Column="1"
+			VerticalAlignment="Center"
 			Content="Website" />
 
 		<TextBox
 			Grid.Row="3"
 			Grid.Column="2"
-			Text="{Binding Publisher.Website, Mode=TwoWay, Source={StaticResource PublisherVm}}" />
+			VerticalAlignment="Center"
+			Text="{Binding Publisher.Website, Mode=TwoWay}" />
 
 		<TextBlock
 			Grid.Row="4"
 			Grid.Column="1"
+			VerticalAlignment="Center"
 			Text="Books" />
 
 		<ListBox
 			Grid.Row="4"
 			Grid.RowSpan="2"
 			Grid.Column="2"
-			ItemsSource="{Binding Publisher.Books, Mode=OneWay, Source={StaticResource PublisherVm}}">
+			ItemsSource="{Binding Publisher.Books, Mode=OneWay}">
 
 			<ListBox.ItemTemplate>
 				<DataTemplate>
@@ -98,8 +103,20 @@
 			x:Name="closeButton"
 			Grid.Row="7"
 			Grid.Column="2"
+			Height="30"
+			VerticalAlignment="Top"
 			Click="CloseButton_OnClick"
-			Content="Close" />
+			Content="Close"
+			RenderTransformOrigin="0.5,0.5">
+			<Button.RenderTransform>
+				<TransformGroup>
+					<ScaleTransform />
+					<SkewTransform />
+					<RotateTransform />
+					<TranslateTransform />
+				</TransformGroup>
+			</Button.RenderTransform>
+		</Button>
 
 	</Grid>
 

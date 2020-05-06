@@ -6,7 +6,7 @@ using MyBooks.Contracts;
 
 namespace MyBooks.BLL.DataServices
 {
-	public class DesignDataService:IDataService
+	public class RunTimeDataService:IDataService
 	{
 		#region Publisher methods
 		public void SavePublisher(IPublisher publisher)
@@ -35,11 +35,13 @@ namespace MyBooks.BLL.DataServices
 				},
 				new PublisherModel
 				{
-					Name= "VanDuuren",
-					Website ="http://www.vanduuren.nl",
+					Name= "Disney Press",
+					Website ="http://www.disney.com",
 					Books= new List<IBook>()
 					{
-						new BookModel{Title="ASP.NET CORE 3.1"}
+						new BookModel{Title="Steamboat Willi"},
+						new BookModel { Title = "Tarzan" },
+						new BookModel{Title="Star Wars Rebels"}
 					}
 				}
 			};
