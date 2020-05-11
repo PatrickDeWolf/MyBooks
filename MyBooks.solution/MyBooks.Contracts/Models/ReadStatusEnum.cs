@@ -2,6 +2,9 @@
 {
 	public enum ReadStatusEnum
 	{
-		test,
+		Unread,
+		Reading,
+		Read
+
 	}
 }

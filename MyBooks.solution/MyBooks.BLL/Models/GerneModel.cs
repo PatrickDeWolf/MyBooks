@@ -5,8 +5,11 @@ using MyBooks.Contracts;
 
 namespace MyBooks.BLL
 {
-	public class GerneModel
+	public class GerneModel 
 	{
+	
+
+
 
 	} // end GerneModel
 

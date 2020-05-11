@@ -8,7 +8,7 @@ namespace MyBooks.Contracts
 
 		string Website { get; set; }
 
-		List<IBook> Books { get; set; }
+	List<IBook> Books { get; set; }
 		
 	} // end IPublisher
 

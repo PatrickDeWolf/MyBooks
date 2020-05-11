@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Text;
 using MyBooks.Contracts;
 
+
 namespace MyBooks.BLL
 {
-	public class BookModel : ModelBase, IBook
-	{
+	public class BookModel : ModelBase, IBook 
+	{ 
 		private string _title;
 
 		public string Title
@@ -20,32 +21,26 @@ namespace MyBooks.BLL
 			}
 		}
 
-
-		private string _frontCover;
+		private string _frontcover;
 		public string FrontCover
 		{
 			get
 			{
-				return _frontCover;
+				return _frontcover;
 			}
 			set
 			{
-				if (_frontCover == value) return;
+				if (_frontcover == value) return;
 
-				_frontCover = value;
+				_frontcover = value;
 				RaisePropertyChanged();
 			}
 		}// end FrontCover
 
 
-		public override string ToString()
-		{
-			//return base.ToString();
-			return Title;
-
-		}
 
 
+		
 	} // end BookModel
 
 } // end namespace

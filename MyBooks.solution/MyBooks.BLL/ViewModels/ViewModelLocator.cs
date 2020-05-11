@@ -4,6 +4,7 @@ using System.Text;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Ioc;
 using MyBooks.BLL.DataServices;
+using MyBooks.BLL.ViewModels;
 using MyBooks.Contracts;
 
 namespace MyBooks.BLL
@@ -33,6 +34,7 @@ namespace MyBooks.BLL
 			// registratie van de VIewModels
 			// Register<T>
 			SimpleIoc.Default.Register<PublisherViewModel>();
+			SimpleIoc.Default.Register<AuthorViewModel>();
 
 		}
 
@@ -41,6 +43,12 @@ namespace MyBooks.BLL
 		{
 			get { return SimpleIoc.Default.GetInstance<PublisherViewModel>(); }
 		}
+
+		public AuthorViewModel AuthorVm
+		{
+			get { return SimpleIoc.Default.GetInstance<AuthorViewModel>(); }
+		}
+
 
 	}// end ViewModelLocator
 

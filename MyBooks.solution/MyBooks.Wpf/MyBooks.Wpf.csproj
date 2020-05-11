@@ -65,6 +65,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Views\AuthorView.xaml.cs">
+      <DependentUpon>AuthorView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\PublisherView.xaml.cs">
       <DependentUpon>PublisherView.xaml</DependentUpon>
     </Compile>
@@ -75,6 +78,10 @@
     <Page Include="Common\MyBooksColors.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\AuthorView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\PublisherView.xaml">
       <SubType>Designer</SubType>

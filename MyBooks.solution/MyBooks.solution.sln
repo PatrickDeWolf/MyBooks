@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyBooks.Contracts", "MyBook
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyBooks.Wpf", "MyBooks.Wpf\MyBooks.Wpf.csproj", "{19F1B52D-2ACA-416A-8A81-E32AD4D92B56}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GeneralHelper.Biblio", "GeneralHelper.Biblio\GeneralHelper.Biblio.csproj", "{1FD64EA4-1EC0-460E-B35E-39E507D75563}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{19F1B52D-2ACA-416A-8A81-E32AD4D92B56}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{19F1B52D-2ACA-416A-8A81-E32AD4D92B56}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{19F1B52D-2ACA-416A-8A81-E32AD4D92B56}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1FD64EA4-1EC0-460E-B35E-39E507D75563}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1FD64EA4-1EC0-460E-B35E-39E507D75563}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1FD64EA4-1EC0-460E-B35E-39E507D75563}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1FD64EA4-1EC0-460E-B35E-39E507D75563}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

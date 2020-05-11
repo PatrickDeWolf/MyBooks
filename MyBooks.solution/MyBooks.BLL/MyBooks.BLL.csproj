@@ -13,10 +13,15 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="MyBooks.BLL.xml" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="MvvmLightLibsStd10" Version="5.4.1.1" />
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\GeneralHelper.Biblio\GeneralHelper.Biblio.csproj" />
     <ProjectReference Include="..\MyBooks.Contracts\MyBooks.Contracts.csproj" />
   </ItemGroup>
 
