@@ -7,7 +7,7 @@ using MyBooks.Contracts;
 
 namespace MyBooks.BLL
 {
-	public class AuthorModel : ModelBase, IAuthor, IDataErrorInfo
+	public class AuthorModel : ModelBase, IAuthor
 	{
 
 		private int _authorId;
@@ -165,23 +165,7 @@ namespace MyBooks.BLL
 		}// end Books
 
 
-		public string Error => "";
 
-		public string this[string columnName]
-		{
-			get
-			{
-				switch (columnName)
-				{
-					case nameof(Firstname):
-						break;
-						
-					default:
-						break;
-				}
-
-			}
-		}
 
 
 
