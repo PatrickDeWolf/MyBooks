@@ -108,7 +108,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\MyBooks.BLL\MyBooks.BLL.csproj">
       <Project>{de331848-c61e-4105-b17a-4ff302f298e5}</Project>
