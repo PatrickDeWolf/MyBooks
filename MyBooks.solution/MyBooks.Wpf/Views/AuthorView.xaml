@@ -15,7 +15,7 @@
 	<Grid>
 		<Grid.RowDefinitions>
 			<RowDefinition Height="10" />
-			<RowDefinition Height="1*" />
+			<RowDefinition Height="1.5*" />
 			<RowDefinition Height="1*" />
 			<RowDefinition Height="1*" />
 			<RowDefinition Height="1*" />
@@ -30,8 +30,8 @@
 
 		<Grid.ColumnDefinitions>
 			<ColumnDefinition Width="10" />
-			<ColumnDefinition Width="1*" />
-			<ColumnDefinition Width="1*" />
+			<ColumnDefinition Width="0.75*" />
+			<ColumnDefinition Width="1.5*" />
 			<ColumnDefinition Width="1*" />
 			<ColumnDefinition Width="1*" />
 			<ColumnDefinition Width="10" />
@@ -41,24 +41,50 @@
 			Grid.Row="1"
 			Grid.Column="1"
 			Grid.ColumnSpan="4"
-			Background="Blue"
+			BorderBrush="BlueViolet"
 			BorderThickness="2">
 
-			<Label
-				HorizontalContentAlignment="Center"
-				Content="Author"
-				Style="{StaticResource PageTitle}" />
+			<Label Content="Author" Style="{StaticResource PageTitle}" />
 		</Border>
 
 		<TextBlock
 			Grid.Row="2"
 			Grid.Column="1"
+			VerticalAlignment="Top"
 			Text="Firstname" />
 
 		<TextBox
 			Grid.Row="2"
 			Grid.Column="2"
-			Text="{Binding Author.Firstname, Mode=TwoWay, NotifyOnValidationError=True, ValidatesOnExceptions=True, UpdateSourceTrigger=PropertyChanged}" />
+			VerticalAlignment="Top"
+			Text="{Binding Author.Firstname, Mode=TwoWay, NotifyOnValidationError=True, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" Style="{DynamicResource ValidationBulletTextBox}" />
+
+		<TextBlock
+			Grid.Row="3"
+			Grid.Column="1"
+			VerticalAlignment="Top"
+			Text="Lastname" />
+
+		<TextBox
+			Grid.Row="3"
+			Grid.Column="2"
+			VerticalAlignment="Top"
+	
+			Text="{Binding Author.Lastname, Mode=TwoWay, NotifyOnValidationError=True, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" />
+
+
+		<TextBlock
+			Grid.Row="5"
+			Grid.Column="1"
+			VerticalAlignment="Top"
+			Text="Date of birth" />
+
+		<DatePicker
+			Grid.Row="5"
+			Grid.Column="2"
+			VerticalAlignment="Top"
+			SelectedDate="{Binding Author.DateOfBirth, Mode=TwoWay, NotifyOnValidationError=True, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"
+			Style="{StaticResource ValidationBulletDateTicker}"/>
 
 
 	</Grid>

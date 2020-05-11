@@ -38,8 +38,7 @@ namespace MyBooks.BLL
 			{
 				if (_firstname == value) return;
 
-				if (!InputValidation.IsFilledIn(value)) throw new ArgumentException("The firstname is required!");
-		
+				
 				_firstname = value;
 				RaisePropertyChanged();
 			}
@@ -55,7 +54,6 @@ namespace MyBooks.BLL
 			set
 			{
 				if (_lastname == value) return;
-				if (!InputValidation.IsFilledIn(value)) throw new ArgumentException("The lastname is required!");
 
 				_lastname = value;
 				RaisePropertyChanged();
@@ -72,9 +70,7 @@ namespace MyBooks.BLL
 			set
 			{
 				if (_pseudonym == value) return;
-				
-				_pseudonym = value.Trim().Length == 0 ? $"{Firstname} {Lastname}" : value;
-
+				//_pseudonym = value.Trim().Length == 0 ? $"{Firstname} {Lastname}" : value;
 				RaisePropertyChanged();
 			}
 		}// end Pseudonym
@@ -91,7 +87,6 @@ namespace MyBooks.BLL
 			{
 				if (_dateOfBirth == value) return;
 
-				if (!InputValidation.IsDateOfBirth(value)) throw new ArgumentException("The date of birth can't in the past!");
 
 				_dateOfBirth = value;
 				RaisePropertyChanged();
@@ -108,9 +103,7 @@ namespace MyBooks.BLL
 			set
 			{
 				if (_diedOn == value) return;
-				if(value.HasValue)
-					if (!InputValidation.IsValidDate(value.Value,true)) throw new ArgumentException("Died on after DOB!");
-
+		
 				_diedOn = value;
 				RaisePropertyChanged();
 			}
@@ -174,12 +167,34 @@ namespace MyBooks.BLL
 				switch (columnName)
 				{
 					case nameof(Firstname):
+						if (!InputValidation.IsFilledIn(Firstname))
+							return "The firstname is required!";
 						break;
-						
+
+					case nameof(Lastname):
+						if (!InputValidation.IsFilledIn(Lastname))
+							return "The lastname is required!";
+						break;
+
+					case nameof(Pseudonym):
+						break;
+
+					case nameof(DateOfBirth):
+						if (!InputValidation.IsDateOfBirth(DateOfBirth))
+							return "The date of birth can't in the past!";
+						break;
+
+					case nameof(DiedOn):
+						if (DiedOn.HasValue)
+							if (!InputValidation.IsValidDate(DiedOn.Value, true))
+								return "Died on after DOB!";
+						break;
+
 					default:
 						break;
 				}
 
+				return string.Empty;
 			}
 		}
 

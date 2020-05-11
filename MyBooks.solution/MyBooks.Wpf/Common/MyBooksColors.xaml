@@ -6,5 +6,7 @@
 	<!--  De kleuren voor de app  -->
 	<SolidColorBrush x:Key="TitleForeground" Color="#ff0000ff" />
 
+	<SolidColorBrush x:Key="ErrorBackgroundBrush" Color="Yellow" />
+	<SolidColorBrush x:Key="ErrorForegroundBrush" Color="#ffff0000" />
 
 </ResourceDictionary>

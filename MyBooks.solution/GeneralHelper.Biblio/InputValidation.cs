@@ -84,15 +84,20 @@ namespace GeneralHelper.Biblio
 		/// <returns></returns>
 		public static bool IsDateOfBirth(DateTime value)
 		{
-			return false;
+			// return (value <= DateTime.ToDay.Date)
+			return IsValidDate(value,true); 
 
 		} // end IsDateOfBirth
 
-		public static bool IsValidDate(DateTime date, bool inTePast = false)
+		public static bool IsValidDate(DateTime date, bool inThePast = false)
 		{
 			// IsValidDate(new DateTime(2000,05,11)) == return false
 			// IsValidDate(new DateTime(2000,05,11),true) == return true
-			return false;
+
+			return !inThePast ? date.Date >= DateTime.Today.Date : date.Date < DateTime.Today.Date;
+
+
+
 		}// end IsValidDate
 
 		public static bool IsEmalAddress(string value)

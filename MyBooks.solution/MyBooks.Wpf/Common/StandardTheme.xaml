@@ -1,0 +1,95 @@
+﻿<ResourceDictionary
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:local="clr-namespace:MyBooks.Wpf.Common">
+
+
+	<!--  Base styling for controls  -->
+	<Style x:Key="BaseLabel" TargetType="Label">
+		<Setter Property="FontSize" Value="18" />
+		<Setter Property="Foreground" Value="#ff00ffff" />
+		<Setter Property="VerticalAlignment" Value="Top" />
+	</Style>
+
+	<Style x:Key="BaseTextBlock" TargetType="TextBlock">
+		<Setter Property="FontSize" Value="18" />
+		<Setter Property="Foreground" Value="#ff0000ff" />
+		<Setter Property="VerticalAlignment" Value="Top" />
+	</Style>
+
+	<Style x:Key="BaseTextBox" TargetType="TextBox">
+		<Setter Property="FontSize" Value="18" />
+		<Setter Property="Foreground" Value="#ff0000ff" />
+		<Setter Property="VerticalAlignment" Value="Top" />
+		<Setter Property="HorizontalAlignment" Value="Left" />
+		<Setter Property="Width" Value="250" />
+
+	</Style>
+
+
+	<!--  Standard Controls  -->
+	<Style BasedOn="{StaticResource BaseTextBlock}" TargetType="TextBlock" />
+
+	<Style BasedOn="{StaticResource BaseTextBox}" TargetType="TextBox" />
+
+	<!--  Specifieke Controls  -->
+	<Style
+		x:Key="PageTitle"
+		BasedOn="{StaticResource BaseLabel}"
+		TargetType="Label">
+		<Setter Property="FontSize" Value="26" />
+		<Setter Property="HorizontalContentAlignment" Value="Center" />
+		<Setter Property="VerticalAlignment" Value="Stretch" />
+		<Setter Property="Foreground" Value="#ffa4e4d7" />
+		<Setter Property="Background" Value="LightSalmon" />
+	</Style>
+
+	<!--  Validion templates  -->
+	<ControlTemplate x:Key="BulletErrorToolTipTemplate">
+		<DockPanel LastChildFill="True">
+			<!--  Definition of the bullet  -->
+			<Border
+				Width="25"
+				Height="25"
+				Margin="0"
+				Background="{StaticResource ErrorForegroundBrush}"
+				CornerRadius="12.5"
+				DockPanel.Dock="Right"
+				ToolTip="{Binding ElementName=customAdorner, Path=AdornedElement.(Validation.Errors)[0].ErrorContent}">
+				<TextBlock
+					HorizontalAlignment="Center"
+					VerticalAlignment="Center"
+					FontSize="14"
+					FontWeight="Bold"
+					Foreground="Yellow"
+					Text="!" />
+
+			</Border>
+
+			<AdornedElementPlaceholder x:Name="customAdorner" VerticalAlignment="Center">
+				<!--  The border round the TextBox  -->
+				<Border BorderBrush="{StaticResource ErrorForegroundBrush}" BorderThickness="1" />
+			</AdornedElementPlaceholder>
+
+		</DockPanel>
+	</ControlTemplate>
+
+
+	<!--  Validation Controls  -->
+
+	<Style
+		x:Key="ValidationBulletTextBox"
+		BasedOn="{StaticResource BaseTextBox}"
+		TargetType="TextBox">
+
+		<Setter Property="Validation.ErrorTemplate" Value="{StaticResource BulletErrorToolTipTemplate}" />
+
+	</Style>
+
+	<Style x:Key="ValidationBulletDateTicker" TargetType="DatePicker">
+
+		<Setter Property="Validation.ErrorTemplate" Value="{StaticResource BulletErrorToolTipTemplate}" />
+
+	</Style>
+
+</ResourceDictionary>

@@ -56,7 +56,7 @@ namespace MyBooks.BLL.ViewModels
 		{
 			_dataService = dataService;
 
-			Author = new AuthorModel { Firstname = "Danny" };
+			Author = new AuthorModel { Firstname = "John", Lastname = "Stanford", DateOfBirth = new DateTime(1965, 11, 5) };
 		}
 
 		private async void GetBooks()
