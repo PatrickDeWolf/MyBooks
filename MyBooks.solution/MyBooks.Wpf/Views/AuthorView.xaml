@@ -87,6 +87,7 @@
 			Grid.Row="4"
 			Grid.Column="2"
 			VerticalAlignment="Top"
+			Style="{DynamicResource ValidationBulletTextBox}"
 			Text="{Binding Author.Pseudonym, Mode=TwoWay, NotifyOnValidationError=True, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" />
 
 		<TextBlock
@@ -168,6 +169,7 @@
 			Grid.Row="10"
 			Grid.Column="1"
 			Content="Save" />
+		
 		<Button
 			Grid.Row="10"
 			Grid.Column="4"

@@ -26,7 +26,6 @@ namespace MyBooks.BLL
 			}
 		}// end AutherId
 
-
 		private string _firstname;
 		public string Firstname
 		{
@@ -74,7 +73,6 @@ namespace MyBooks.BLL
 				RaisePropertyChanged();
 			}
 		}// end Pseudonym
-
 
 		private DateTime _dateOfBirth;
 		public DateTime DateOfBirth

@@ -70,7 +70,7 @@ namespace MyBooks.BLL
 				new AuthorModel
 				{
 					AutherId=1, Firstname="John Roswell",Lastname="Camp",Pseudonym="John Sandford",
-					DateOfBirth=new DateTime(),Nationality="USA",Photo="",
+					DateOfBirth=new DateTime(),Nationality="USA",Photo="",//Camp
 					Books=new List<IBook>
 										{
 												// Guid.NewGuid( ) =  c430ef63-99b9-4c6b-9961-f64c85e15950
