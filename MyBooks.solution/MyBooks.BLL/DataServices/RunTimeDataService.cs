@@ -1,12 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using MyBooks.Contracts;
 
-namespace MyBooks.BLL.DataServices
+namespace MyBooks.BLL
 {
-	public class RunTimeDataService:IDataService
+
+	public class RunTimeDataService : IDataService
 	{
 		#region Publisher methods
 		public void SavePublisher(IPublisher publisher)
@@ -55,6 +57,54 @@ namespace MyBooks.BLL.DataServices
 
 		#endregion
 
+		#region Author methods
+		public async void SaveAuthor(IAuthor author)
+		{
+
+		}
+
+		public async Task<List<IAuthor>> GetAuthors()
+		{
+			return new List<IAuthor>
+			{
+				new AuthorModel
+				{
+					AutherId=1, Firstname="John Roswell",Lastname="Camp",Pseudonym="John Sandford",
+					DateOfBirth=new DateTime(),Nationality="USA",Photo="",
+					Books=new List<IBook>
+										{
+												// Guid.NewGuid( ) =  c430ef63-99b9-4c6b-9961-f64c85e15950
+											new BookModel{BookId= Guid.NewGuid(),Title= "Kille Woede", FrontCover= "9789400503113.png" },
+											new BookModel{BookId= Guid.NewGuid(),Title= "Geschreven in bloed", FrontCover= "9789400504165.png" },
+										}
+				},
+				new AuthorModel
+				{
+					AutherId=2, Firstname="Steve",Lastname="Berry",Pseudonym="Steve Berry",
+					DateOfBirth=new DateTime(),Nationality="USA",Photo="",
+					Books=new List<IBook>
+									{
+										new BookModel{BookId= Guid.NewGuid(),Title= "De erfenis van de Tempeliers", FrontCover= "9789026122590.png" },
+									}
+				},
+			};
+		}
+
+		public async Task<List<IAuthor>> GetAuthors(IAuthor author)
+		{
+			throw new NotImplementedException();
+		}
+
+		public void Delete(IAuthor author)
+		{
+
+		}
+
+
+
+		#endregion
+
+
 	}// end DesignDataService
 
-} // End namespace
+}

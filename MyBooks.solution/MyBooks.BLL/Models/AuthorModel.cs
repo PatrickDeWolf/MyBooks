@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Text;
-using GeneralHelper.Biblio;
+using GeneralHelper.Lib;
 using MyBooks.Contracts;
 
 namespace MyBooks.BLL
@@ -20,7 +20,7 @@ namespace MyBooks.BLL
 			set
 			{
 				if (_authorId == value) return;
-		
+
 				_authorId = value;
 				RaisePropertyChanged();
 			}
@@ -38,7 +38,7 @@ namespace MyBooks.BLL
 			{
 				if (_firstname == value) return;
 
-				
+
 				_firstname = value;
 				RaisePropertyChanged();
 			}
@@ -70,7 +70,7 @@ namespace MyBooks.BLL
 			set
 			{
 				if (_pseudonym == value) return;
-				//_pseudonym = value.Trim().Length == 0 ? $"{Firstname} {Lastname}" : value;
+				_pseudonym = value;
 				RaisePropertyChanged();
 			}
 		}// end Pseudonym
@@ -103,7 +103,7 @@ namespace MyBooks.BLL
 			set
 			{
 				if (_diedOn == value) return;
-		
+
 				_diedOn = value;
 				RaisePropertyChanged();
 			}
@@ -146,7 +146,7 @@ namespace MyBooks.BLL
 		{
 			get
 			{
-				return _books??(_books=new List<IBook>());
+				return _books ?? (_books = new List<IBook>());
 			}
 			set
 			{
@@ -199,7 +199,7 @@ namespace MyBooks.BLL
 		}
 
 
-
+		 
 
 		public override bool Equals(object obj)
 		{

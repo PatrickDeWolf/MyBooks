@@ -7,8 +7,14 @@
 	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
 	Title="AuthorView"
 	Width="800"
-	Height="450"
+	Height="600"
+	MinWidth="800"
+	MinHeight="600"
+	MaxWidth="1024"
+	MaxHeight="728"
 	DataContext="{Binding AuthorVm, Source={StaticResource Locator}}"
+	Icon="/MyBooks.Wpf;component/Assets/BookIcon.ico"
+	WindowStartupLocation="CenterScreen"
 	mc:Ignorable="d">
 
 
@@ -16,31 +22,32 @@
 		<Grid.RowDefinitions>
 			<RowDefinition Height="10" />
 			<RowDefinition Height="1.5*" />
-			<RowDefinition Height="1*" />
-			<RowDefinition Height="1*" />
-			<RowDefinition Height="1*" />
-			<RowDefinition Height="1*" />
-			<RowDefinition Height="1*" />
-			<RowDefinition Height="1*" />
-			<RowDefinition Height="1*" />
-			<RowDefinition Height="1*" />
-			<RowDefinition Height="30" />
+			<RowDefinition Height="0.5*" />
+			<RowDefinition Height="0.5*" />
+			<RowDefinition Height="0.5*" />
+			<RowDefinition Height="0.5*" />
+			<RowDefinition Height="0.5*" />
+			<RowDefinition Height="0.5*" />
+			<RowDefinition Height="0.5*" />
+			<RowDefinition Height="0.5*" />
+			<RowDefinition Height="60" />
 			<RowDefinition Height="10" />
 		</Grid.RowDefinitions>
 
 		<Grid.ColumnDefinitions>
 			<ColumnDefinition Width="10" />
-			<ColumnDefinition Width="0.75*" />
-			<ColumnDefinition Width="1.5*" />
 			<ColumnDefinition Width="1*" />
+			<ColumnDefinition Width="2.0*" />
+			<ColumnDefinition Width="1.25*" />
 			<ColumnDefinition Width="1*" />
 			<ColumnDefinition Width="10" />
 		</Grid.ColumnDefinitions>
 
 		<Border
 			Grid.Row="1"
-			Grid.Column="1"
-			Grid.ColumnSpan="4"
+			Grid.Column="0"
+			Grid.ColumnSpan="6"
+			Margin="0,0,0,10"
 			BorderBrush="BlueViolet"
 			BorderThickness="2">
 
@@ -52,40 +59,121 @@
 			Grid.Column="1"
 			VerticalAlignment="Top"
 			Text="Firstname" />
-
 		<TextBox
 			Grid.Row="2"
 			Grid.Column="2"
 			VerticalAlignment="Top"
-			Text="{Binding Author.Firstname, Mode=TwoWay, NotifyOnValidationError=True, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" Style="{DynamicResource ValidationBulletTextBox}" />
+			Style="{DynamicResource ValidationBulletTextBox}"
+			Text="{Binding Author.Firstname, Mode=TwoWay, NotifyOnValidationError=True, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" />
 
 		<TextBlock
 			Grid.Row="3"
 			Grid.Column="1"
 			VerticalAlignment="Top"
 			Text="Lastname" />
-
 		<TextBox
 			Grid.Row="3"
 			Grid.Column="2"
 			VerticalAlignment="Top"
-	
+			Style="{DynamicResource ValidationBulletTextBox}"
 			Text="{Binding Author.Lastname, Mode=TwoWay, NotifyOnValidationError=True, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" />
 
+		<TextBlock
+			Grid.Row="4"
+			Grid.Column="1"
+			VerticalAlignment="Top"
+			Text="Pseudonym" />
+		<TextBox
+			Grid.Row="4"
+			Grid.Column="2"
+			VerticalAlignment="Top"
+			Text="{Binding Author.Pseudonym, Mode=TwoWay, NotifyOnValidationError=True, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" />
 
 		<TextBlock
 			Grid.Row="5"
 			Grid.Column="1"
 			VerticalAlignment="Top"
 			Text="Date of birth" />
-
 		<DatePicker
 			Grid.Row="5"
 			Grid.Column="2"
 			VerticalAlignment="Top"
 			SelectedDate="{Binding Author.DateOfBirth, Mode=TwoWay, NotifyOnValidationError=True, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"
-			Style="{StaticResource ValidationBulletDateTicker}"/>
+			Style="{StaticResource ValidationBulletDateTicker}" />
 
+		<TextBlock
+			Grid.Row="6"
+			Grid.Column="1"
+			VerticalAlignment="Top"
+			Text="Died On" />
+		<DatePicker
+			Grid.Row="6"
+			Grid.Column="2"
+			VerticalAlignment="Top"
+			SelectedDate="{Binding Author.DiedOn, Mode=TwoWay, NotifyOnValidationError=True, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"
+			Style="{StaticResource ValidationBulletDateTicker}" />
+
+		<TextBlock
+			Grid.Row="7"
+			Grid.Column="1"
+			VerticalAlignment="Top"
+			Text="Nationality" />
+		<TextBox
+			Grid.Row="7"
+			Grid.Column="2"
+			VerticalAlignment="Top"
+			Text="{Binding Author.Nationality, Mode=TwoWay, NotifyOnValidationError=True, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" />
+
+		<TextBlock
+			Grid.Row="8"
+			Grid.Column="1"
+			VerticalAlignment="Top"
+			Text="Photo" />
+		<TextBox
+			Grid.Row="8"
+			Grid.Column="2"
+			VerticalAlignment="Top"
+			Text="{Binding Author.Photo, Mode=TwoWay, NotifyOnValidationError=True, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" />
+
+		<TextBlock
+			Grid.Row="2"
+			Grid.Column="3"
+			VerticalAlignment="Top"
+			Text="Books" />
+
+		<ListBox
+			Grid.Row="3"
+			Grid.RowSpan="6"
+			Grid.Column="3"
+			Grid.ColumnSpan="2"
+			ItemsSource="{Binding Author.Books}">
+			<!--  DisplayMemberPath="Title"  -->
+			<ListBox.ItemTemplate>
+				<DataTemplate>
+
+					<StackPanel Orientation="Horizontal">
+						<Label Content="{Binding FrontCover}" />
+						<StackPanel Orientation="Vertical">
+							<Label Content="{Binding Title}" />
+						</StackPanel>
+					</StackPanel>
+
+				</DataTemplate>
+			</ListBox.ItemTemplate>
+
+		</ListBox>
+
+
+		<Button
+			Grid.Row="10"
+			Grid.Column="1"
+			Content="Save" />
+		<Button
+			Grid.Row="10"
+			Grid.Column="4"
+			HorizontalAlignment="Right"
+			Click="CloseButton_Click"
+			Content="Close" />
 
 	</Grid>
 

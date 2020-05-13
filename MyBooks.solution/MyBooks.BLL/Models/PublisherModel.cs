@@ -6,7 +6,7 @@ using MyBooks.Contracts;
 
 namespace MyBooks.BLL
 {
-	public class PublisherModel : ModelBase,IPublisher
+	public class PublisherModel : ModelBase, IPublisher
 	{
 		private int _publisherId;
 		public int PublisherId
@@ -70,7 +70,7 @@ namespace MyBooks.BLL
 		{
 			get
 			{
-				if(_books==null)_books=new List<IBook>();
+				if (_books == null) _books = new List<IBook>();
 				return _books;
 			}
 			set
@@ -85,7 +85,7 @@ namespace MyBooks.BLL
 
 		public PublisherModel()
 		{
-			
+
 		}
 
 		//public override string ToString()

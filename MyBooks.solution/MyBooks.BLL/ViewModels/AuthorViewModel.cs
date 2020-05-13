@@ -9,11 +9,11 @@ namespace MyBooks.BLL.ViewModels
 	/// <summary>
 	/// 
 	/// </summary>
-	public class AuthorViewModel:ViewModelBase
+	public class AuthorViewModel : ViewModelBase
 	{
 		private IDataService _dataService;
 
-		public string PageTitle { get { return "Author"; } }
+		public string PageTitle => "Author";
 
 
 		private AuthorModel _author;
@@ -21,7 +21,7 @@ namespace MyBooks.BLL.ViewModels
 		{
 			get
 			{
-				return _author??(_author= new AuthorModel());
+				return _author ?? (_author = new AuthorModel());
 			}
 			set
 			{
@@ -32,37 +32,21 @@ namespace MyBooks.BLL.ViewModels
 			}
 		}// end Author
 
-		//private List<BookModel> _books;
-		//public List<BookModel> Books
-		//{
-		//	get
-		//	{
-		//		return _books??(_books=new List<BookModel>());
-		//	}
-		//	set
-		//	{
-		//		if (_books == value) return;
-
-		//		_books = value;
-		//		RaisePropertyChanged();
-		//	}
-		//}// end Books
-
-
-
+		
 		// The command
 
 		public AuthorViewModel(IDataService dataService)
 		{
 			_dataService = dataService;
 
-			Author = new AuthorModel { Firstname = "John", Lastname = "Stanford", DateOfBirth = new DateTime(1965, 11, 5) };
+			GetData();
 		}
 
-		private async void GetBooks()
-		{
 
-		//	_books=new List<BookModel>();
+		private async void GetData()
+		{
+			var result = await _dataService.GetAuthors();
+			Author = result[0] as AuthorModel;
 		}
 
 

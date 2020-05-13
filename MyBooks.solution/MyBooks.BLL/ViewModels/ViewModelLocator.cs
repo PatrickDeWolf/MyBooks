@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Ioc;
-using MyBooks.BLL.DataServices;
+
 using MyBooks.BLL.ViewModels;
 using MyBooks.Contracts;
 
@@ -20,14 +20,23 @@ namespace MyBooks.BLL
 			if (ViewModelBase.IsInDesignModeStatic)
 			{
 				// laden van designdata -> registratie van de DesignDataService
-				SimpleIoc.Default.Register<IDataService,DesignDataService>();
+				if (!SimpleIoc.Default.IsRegistered<IDataService>())
+				{
+					SimpleIoc.Default.Register<IDataService, DesignDataService>();
+				}
 			}
 			else
 			{
 				// laden van de run-time data --> registratie van de databron dataservice
 				// --> SqlDataService -> gebruik van database
 				// --> tekstbestanden: json, xml, csv, ....
-				SimpleIoc.Default.Register<IDataService,RunTimeDataService>();
+				//	SimpleIoc.Default.Register<IDataService, RunTimeDataService>();
+				//SimpleIoc.Default.Register<IDataService, DesignDataService>();
+
+				if (!SimpleIoc.Default.IsRegistered<IDataService>())
+				{
+					SimpleIoc.Default.Register<IDataService, RunTimeDataService>();
+				}
 
 			}
 

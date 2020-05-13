@@ -5,13 +5,13 @@ using System.Runtime.CompilerServices;
 using System.Security.Cryptography;
 using System.Text;
 using GalaSoft.MvvmLight;
-using MyBooks.BLL.Annotations;
+
 using MyBooks.Contracts;
 
 
 namespace MyBooks.BLL
 {
-	public class PublisherViewModel:ViewModelBase
+	public class PublisherViewModel : ViewModelBase
 
 	{
 
@@ -21,7 +21,7 @@ namespace MyBooks.BLL
 
 		// properties voor binding met de view
 
-		public  string PageTitle
+		public string PageTitle
 		{
 			get { return "Publisher"; }
 
@@ -34,7 +34,14 @@ namespace MyBooks.BLL
 		{
 			get { return _publisher ?? (_publisher = new PublisherModel()); }
 
-			set { _publisher = value; }
+			set
+			{
+				if (_publisher == value) return;
+				_publisher = value;
+				RaisePropertyChanged();
+
+
+			}
 		}
 
 		// List property met alle publishers
@@ -43,7 +50,8 @@ namespace MyBooks.BLL
 		{
 			get
 			{
-				return _publishers;
+				// if _publishers == null -> create a new instance
+				return _publishers ?? (_publishers = new List<IPublisher>());
 			}
 			set
 			{
@@ -82,15 +90,7 @@ namespace MyBooks.BLL
 
 			Publisher = Publishers[1] as PublisherModel;
 
-			//Publisher = new PublisherModel
-			//{
-			//	Name = "Micrsoft Press", Website = "http://www.microsoft.be",
-			//	Books=new List<IBook>()
-			//	{
-			//		new BookModel() { Title="OOP: Building Reusable Components With VB.NET",FrontCover = "../Assets/DesignDataImage1.jpg"},
-			//		new BookModel(){Title = " MvvM in Xaramin.Forms", FrontCover = "../Assets/DesignDataImage2.png"}
-			//	}
-			//};
+	
 		}
 
 

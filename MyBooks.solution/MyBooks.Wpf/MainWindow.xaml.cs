@@ -10,24 +10,19 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace MyBooks.Wpf.Views
+namespace MyBooks.Wpf
 {
 	/// <summary>
-	/// Interaction logic for AuthorView.xaml
+	/// Interaction logic for MainWindow.xaml
 	/// </summary>
-	public partial class AuthorView : Window
+	public partial class MainWindow : Window
 	{
-		public AuthorView()
+		public MainWindow()
 		{
 			InitializeComponent();
 		}
-
-		private void CloseButton_Click(object sender, RoutedEventArgs e)
-		{
-			Close();
-		}
-
 	}
 }

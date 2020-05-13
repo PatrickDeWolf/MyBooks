@@ -1,5 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace MyBooks.Contracts
 {
@@ -22,5 +25,6 @@ namespace MyBooks.Contracts
 
 		List<IBook> Books { get; set; }
 
-	}// end IAuthor
+		//List<IBook<ReadStatusEnum,ApprectiationEnum>> Books { get; set; }
+	}
 }

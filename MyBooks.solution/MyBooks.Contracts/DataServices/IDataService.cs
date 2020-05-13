@@ -1,5 +1,7 @@
-﻿using System.Collections.Generic;
-using System.Dynamic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 
 namespace MyBooks.Contracts
@@ -23,15 +25,18 @@ namespace MyBooks.Contracts
 
 		#region Publisher methods
 		void SavePublisher(IPublisher publisher);
-
 		Task<List<IPublisher>> GetPublishers();
-
 		Task<IPublisher> GetPublishers(IPublisher publisher);
-		
-		void Delete(IPublisher publisher); 
+		void Delete(IPublisher publisher);
 		#endregion
 
+		#region Author methods
+		void SaveAuthor(IAuthor author);
+		Task<List<IAuthor>> GetAuthors();
+		Task<List<IAuthor>> GetAuthors(IAuthor author);
+		void Delete(IAuthor author);
+
+		#endregion
 
 	} // end IDataService
-
-}// end namespace
+}

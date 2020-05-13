@@ -1,12 +1,14 @@
 ﻿using System;
-using System.Runtime.Serialization;
-using System.Security.Cryptography.X509Certificates;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace MyBooks.Contracts
 {
-	public interface IBook 
+	public interface IBook //<T, U> where T:Enum where U: Enum
 	{
-
+		Guid BookId { get; set; }
 		string Title { get; set; }
 
 		string FrontCover { get; set; }
@@ -18,4 +20,6 @@ namespace MyBooks.Contracts
 
 	} // end Books
 
-} // end namespace
+
+}
+

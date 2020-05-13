@@ -1,4 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace MyBooks.Contracts
 {
@@ -8,8 +12,8 @@ namespace MyBooks.Contracts
 
 		string Website { get; set; }
 
-	List<IBook> Books { get; set; }
-		
+		List<IBook> Books { get; set; }
+
 	} // end IPublisher
 
-} // end namespace
+}
