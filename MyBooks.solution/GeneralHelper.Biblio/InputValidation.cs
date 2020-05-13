@@ -90,8 +90,8 @@ namespace GeneralHelper.Lib
 		public static bool IsBetween<T>(T waarde, T minima, T maxima)
 			where T : IComparable<T>
 		{
-			// -1	-> WAARDE kleiner is dan MINIMA
-			// 0	-> WAARDE gelijk is aan	 MINIMA
+			// -1	-> WAARDE kleiner is dan Maxima
+			// 0	-> WAARDE gelijk is aan	 MINIMA of Maxima
 			// 1	-> WAARDE groter is dan  MINIMA
 			if ((waarde.CompareTo(minima) == 0 || waarde.CompareTo(minima) == 1) &&
 			    (waarde.CompareTo(maxima) == 0 || waarde.CompareTo(maxima) == -1))
@@ -118,6 +118,7 @@ namespace GeneralHelper.Lib
 		/// <remarks>A date is valid when in the future and invalid when in the past. A other solution is write two methods one for a valid date in the future and the other for a valid date in the past</remarks>
 		public static bool IsValidDate(DateTime date, bool inTePast = false)
 		{
+			// IIF( ) -> EXCEL, Word, Access, PowerPoint --> VBA
 			return !inTePast ? date.Date >= DateTime.Today.Date : date.Date <= DateTime.Today.Date;
 
 			//if (!inTePast)
@@ -142,6 +143,20 @@ namespace GeneralHelper.Lib
 			}
 			return true;
 		}
+
+		public static bool IsValidUrl(string url)
+		{
+			//var registrationCode = "C#RtW";
+			//if(registrationCode == "JanMetDePet")
+			//{
+			//	//return leer the url
+			//}
+			
+			throw new NotImplementedException("Alleen beschikaar in de betalende versie");
+		}
+
+
+		//000-0000000-00 "(^[0-9]{3}-[0-9]{7}-[0-9]{2}$)" of "(^\d{3}-\d{7}-\d{2}$)" 
 
 
 	}// end InputValidation
