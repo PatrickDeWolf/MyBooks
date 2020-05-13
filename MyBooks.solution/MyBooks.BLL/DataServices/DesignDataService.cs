@@ -97,11 +97,63 @@ namespace MyBooks.BLL
 
 		}
 
-	
+
+
 
 		#endregion
 
+		#region Books methods
+		public void SaveBook(IBook book)
+		{
+			throw new NotImplementedException();
+		}
 
+		public async Task<List<IBook>> GetBooks()
+		{
+			return new List<IBook>
+										{
+											new BookModel{BookId= Guid.NewGuid(),Title= "Kille Woede", FrontCover= "9789400503113.png" },
+											new BookModel{BookId= Guid.NewGuid(),Title= "Geschreven in bloed", FrontCover= "9789400504165.png" },
+											new BookModel{BookId= Guid.NewGuid(),Title= "De erfenis van de Tempeliers", FrontCover= "9789026122590.png" },
+										};
+		}
+
+		public Task<List<IBook>> GetBooks(IBook book)
+		{
+			throw new NotImplementedException();
+		}
+
+		public Task<List<IBook>> GetBooks(IAuthor author)
+		{
+			throw new NotImplementedException();
+		}
+
+		public Task<List<IBook>> GetBooks(IAuthor author, IGerne gerne)
+		{
+			throw new NotImplementedException();
+		}
+
+		public Task<List<IBook>> GetBooks(IPublisher publisher)
+		{
+			throw new NotImplementedException();
+		}
+
+		public Task<List<IBook>> GetBooks(string title)
+		{
+			throw new NotImplementedException();
+		}
+
+		public Task<List<IBook>> GetBooks(IGerne gerne)
+		{
+			throw new NotImplementedException();
+		}
+
+		public void Delete(IBook book)
+		{
+			throw new NotImplementedException();
+		}
+
+		#endregion
 
 	}// end DesignDataService
 

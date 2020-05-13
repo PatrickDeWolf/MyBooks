@@ -8,15 +8,16 @@
 	Title="BooksView"
 	Width="800"
 	Height="450"
+	DataContext="{Binding BooksVm, Source={StaticResource Locator}}"
 	mc:Ignorable="d">
 
 	<Grid>
 		<Grid.RowDefinitions>
 			<RowDefinition Height="10" />
-			<RowDefinition Height="1*" />
-			<RowDefinition Height="1*" />
+			<RowDefinition Height="60" />
 			<RowDefinition Height="1*" />
 			<RowDefinition Height="*" />
+			<RowDefinition Height="0.5*" />
 			<RowDefinition Height="30" />
 			<RowDefinition Height="10" />
 		</Grid.RowDefinitions>
@@ -40,16 +41,29 @@
 			Grid.Column="1"
 			Content="Select an author" />
 
-		<ComboBox Grid.Row="2" Grid.Column="2">
-			<ComboBoxItem Content="Select an author" />
+		<ComboBox
+			Grid.Row="2"
+			Grid.Column="2"
+			ItemsSource="{Binding Authors}"
+			SelectedItem="{Binding SelectedAuthor, Mode=TwoWay}">
+			<!--<ComboBoxItem Content="Select an author" />-->
+			<ComboBox.ItemTemplate>
+				<DataTemplate>
+					<Label Content="{Binding Pseudonym, Mode=OneWay}" />
+				</DataTemplate>
+			</ComboBox.ItemTemplate>
 		</ComboBox>
 
 		<ListBox
 			Grid.Row="3"
 			Grid.Column="1"
-			Grid.ColumnSpan="2">
-			<ListBoxItem Content="Book 1" />
-			<ListBoxItem Content="Book 2" />
+			Grid.ColumnSpan="2"
+			ItemsSource="{Binding Books, Mode=OneWay}">
+			<ListBox.ItemTemplate>
+				<DataTemplate>
+					<Label Content="{Binding Title}" />
+				</DataTemplate>
+			</ListBox.ItemTemplate>
 		</ListBox>
 
 	</Grid>

@@ -44,6 +44,7 @@ namespace MyBooks.BLL
 			// Register<T>
 			SimpleIoc.Default.Register<PublisherViewModel>();
 			SimpleIoc.Default.Register<AuthorViewModel>();
+			SimpleIoc.Default.Register<BooksViewModel>();
 
 		}
 
@@ -56,6 +57,11 @@ namespace MyBooks.BLL
 		public AuthorViewModel AuthorVm
 		{
 			get { return SimpleIoc.Default.GetInstance<AuthorViewModel>(); }
+		}
+
+		public BooksViewModel BooksVm
+		{
+			get { return SimpleIoc.Default.GetInstance<BooksViewModel>(); }
 		}
 
 

@@ -38,5 +38,21 @@ namespace MyBooks.Contracts
 
 		#endregion
 
+		#region Books Methods
+		void SaveBook(IBook book);
+		Task<List<IBook>> GetBooks();
+
+		Task<List<IBook>> GetBooks(IBook book);
+		Task<List<IBook>> GetBooks(IAuthor author);
+		Task<List<IBook>> GetBooks(IAuthor author,IGerne gerne);
+		Task<List<IBook>> GetBooks(IPublisher publisher);
+		Task<List<IBook>> GetBooks(string title);
+		Task<List<IBook>> GetBooks(IGerne gerne);
+
+		void Delete(IBook book);
+
+
+		#endregion
+
 	} // end IDataService
 }
