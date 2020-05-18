@@ -15,7 +15,7 @@ namespace MyBooks.BLL
 			{
 				return _publisherId;
 			}
-			private set
+			set
 			{
 				if (_publisherId == value) return;
 

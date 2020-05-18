@@ -1,0 +1,4 @@
+AuthorId;Firstname;Lastname;Pseudonym;DateOfBirth;DiedOn;Nationality;Photo
+1;John Roswell;Camp;John Sandford;1944-02-23;0000-00-00;USA;NoImage.png
+2;Agatha Mary Clarissa;Miller;Agatha Christie;1890-09-15;1976-01-12;GB;NoImage.png
+3;Dan;Hermes;Dan Hermes;0000-00-00;null;USA;NoImage.png

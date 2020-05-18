@@ -25,15 +25,27 @@ namespace MyBooks.Contracts
 
 		#region Publisher methods
 		void SavePublisher(IPublisher publisher);
+
 		Task<List<IPublisher>> GetPublishers();
+
 		Task<IPublisher> GetPublishers(IPublisher publisher);
+
 		void Delete(IPublisher publisher);
 		#endregion
+
+		#region Gerne Methods
+
+		Task<List<IGenre>> GetGenres();
+
+		void SaveGenre(IGenre genre);
+
+		#endregion
+
 
 		#region Author methods
 		void SaveAuthor(IAuthor author);
 		Task<List<IAuthor>> GetAuthors();
-		Task<List<IAuthor>> GetAuthors(IAuthor author);
+		Task<IAuthor> GetAuthor(IAuthor author);
 		void Delete(IAuthor author);
 
 		#endregion
@@ -44,10 +56,10 @@ namespace MyBooks.Contracts
 
 		Task<List<IBook>> GetBooks(IBook book);
 		Task<List<IBook>> GetBooks(IAuthor author);
-		Task<List<IBook>> GetBooks(IAuthor author,IGerne gerne);
+		Task<List<IBook>> GetBooks(IAuthor author, IGenre genre);
 		Task<List<IBook>> GetBooks(IPublisher publisher);
 		Task<List<IBook>> GetBooks(string title);
-		Task<List<IBook>> GetBooks(IGerne gerne);
+		Task<List<IBook>> GetBooks(IGenre genre);
 
 		void Delete(IBook book);
 

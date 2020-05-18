@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Text;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Ioc;
-
 using MyBooks.BLL.ViewModels;
 using MyBooks.Contracts;
 
@@ -35,7 +34,7 @@ namespace MyBooks.BLL
 
 				if (!SimpleIoc.Default.IsRegistered<IDataService>())
 				{
-					SimpleIoc.Default.Register<IDataService, RunTimeDataService>();
+					SimpleIoc.Default.Register<IDataService, CsvDataService>();
 				}
 
 			}

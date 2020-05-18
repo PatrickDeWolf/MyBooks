@@ -55,6 +55,19 @@ namespace MyBooks.BLL
 			throw new NotImplementedException();
 		}
 
+		#endregion		#region Publisher methods
+
+		#region Gerne methods
+		public Task<List<IGenre>> GetGenres()
+		{
+			throw new NotImplementedException();
+		}
+
+		public void SaveGenre(IGenre genre)
+		{
+			throw new NotImplementedException();
+		}
+
 		#endregion
 
 		#region Author methods
@@ -69,8 +82,8 @@ namespace MyBooks.BLL
 			{
 				new AuthorModel
 				{
-					AutherId=1, Firstname="John Roswell",Lastname="Camp",Pseudonym="John Sandford",
-					DateOfBirth=new DateTime(),Nationality="USA",Photo="",//Camp
+					AuthorId=1, Firstname="John Roswell",Lastname="Camp",Pseudonym="John Sandford",
+					DateOfBirth=new DateTime(), Nationality="USA",Photo="",//Camp
 					Books=new List<IBook>
 										{
 												// Guid.NewGuid( ) =  c430ef63-99b9-4c6b-9961-f64c85e15950
@@ -80,7 +93,7 @@ namespace MyBooks.BLL
 				},
 				new AuthorModel
 				{
-					AutherId=2, Firstname="Steve",Lastname="Berry",Pseudonym="Steve Berry",
+					AuthorId=2, Firstname="Steve",Lastname="Berry",Pseudonym="Steve Berry",
 					DateOfBirth=new DateTime(),Nationality="USA",Photo="",
 					Books=new List<IBook>
 									{
@@ -90,7 +103,7 @@ namespace MyBooks.BLL
 			};
 		}
 
-		public async Task<List<IAuthor>> GetAuthors(IAuthor author)
+		public async Task<IAuthor> GetAuthor(IAuthor author)
 		{
 			throw new NotImplementedException();
 		}
@@ -113,11 +126,11 @@ namespace MyBooks.BLL
 		public async Task<List<IBook>> GetBooks()
 		{
 			return new List<IBook>
-										{
-											new BookModel{BookId= Guid.NewGuid(),Title= "Kille Woede", FrontCover= "9789400503113.png" },
-											new BookModel{BookId= Guid.NewGuid(),Title= "Geschreven in bloed", FrontCover= "9789400504165.png" },
-											new BookModel{BookId= Guid.NewGuid(),Title= "De erfenis van de Tempeliers", FrontCover= "9789026122590.png" },
-										};
+			{
+				new BookModel{BookId= Guid.NewGuid(),Title= "Kille Woede", FrontCover= "NoImage.png" },//9789400503113
+				new BookModel{BookId= Guid.NewGuid(),Title= "Geschreven in bloed", FrontCover= "9789400504165.png" },
+				new BookModel{BookId= Guid.NewGuid(),Title= "De erfenis van de Tempeliers", FrontCover= "9789026122590.png" },
+			};
 		}
 
 		public Task<List<IBook>> GetBooks(IBook book)
@@ -130,7 +143,7 @@ namespace MyBooks.BLL
 			throw new NotImplementedException();
 		}
 
-		public Task<List<IBook>> GetBooks(IAuthor author, IGerne gerne)
+		public Task<List<IBook>> GetBooks(IAuthor author, IGenre genre)
 		{
 			throw new NotImplementedException();
 		}
@@ -145,7 +158,7 @@ namespace MyBooks.BLL
 			throw new NotImplementedException();
 		}
 
-		public Task<List<IBook>> GetBooks(IGerne gerne)
+		public Task<List<IBook>> GetBooks(IGenre genre)
 		{
 			throw new NotImplementedException();
 		}

@@ -8,6 +8,11 @@ namespace MyBooks.Contracts
 {
 	public interface IPublisher
 	{
+		int PublisherId
+		{
+			get; set;
+		}
+
 		string Name { get; set; }
 
 		string Website { get; set; }

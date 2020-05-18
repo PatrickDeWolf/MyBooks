@@ -15,9 +15,9 @@
 		<Grid.RowDefinitions>
 			<RowDefinition Height="10" />
 			<RowDefinition Height="60" />
-			<RowDefinition Height="1*" />
-			<RowDefinition Height="*" />
-			<RowDefinition Height="0.5*" />
+			<RowDefinition Height="0.75*" />
+			<RowDefinition Height="Auto" />
+			<RowDefinition Height="0.15*" />
 			<RowDefinition Height="30" />
 			<RowDefinition Height="10" />
 		</Grid.RowDefinitions>
@@ -61,7 +61,14 @@
 			ItemsSource="{Binding Books, Mode=OneWay}">
 			<ListBox.ItemTemplate>
 				<DataTemplate>
-					<Label Content="{Binding Title}" />
+					<StackPanel Orientation="Horizontal">
+						<Image Source="{Binding FrontCover, Converter={StaticResource ImageConverter}}" Style="{StaticResource Image4List}" />
+						<StackPanel Orientation="Vertical">
+							<Label Content="{Binding Title}" />
+							<Label Content="{Binding Genre.Genre}" />
+						</StackPanel>
+					</StackPanel>
+
 				</DataTemplate>
 			</ListBox.ItemTemplate>
 		</ListBox>

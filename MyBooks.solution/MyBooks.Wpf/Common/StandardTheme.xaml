@@ -4,7 +4,7 @@
 	<!--  Base styling for controls  -->
 	<Style x:Key="BaseLabel" TargetType="Label">
 		<Setter Property="FontSize" Value="18" />
-		<Setter Property="Foreground" Value="#ff00ffff" />
+		<Setter Property="Foreground" Value="#ff0000ff" />
 		<Setter Property="VerticalAlignment" Value="Top" />
 	</Style>
 
@@ -38,15 +38,25 @@
 		<Setter Property="VerticalAlignment" Value="Bottom" />
 	</Style>
 
+	<Style x:Key="BaseComboBox" TargetType="ComboBox">
+		<Setter Property="HorizontalAlignment" Value="Left" />
+		<Setter Property="VerticalAlignment" Value="Top" />
+		<Setter Property="Margin" Value="0,10,0,0" />
+		<Setter Property="Width" Value="250" />
+	</Style>
+
+	<Style x:Key="BaseImage" TargetType="Image">
+		<Setter Property="Width" Value="150" />
+	</Style>
 
 	<!--  Standard Controls  -->
 	<Style BasedOn="{StaticResource BaseTextBlock}" TargetType="TextBlock" />
-
+	<Style BasedOn="{StaticResource BaseLabel}" TargetType="Label" />
 	<Style BasedOn="{StaticResource BaseTextBox}" TargetType="TextBox" />
-
 	<Style BasedOn="{StaticResource BaseDatePicker}" TargetType="DatePicker" />
-
 	<Style BasedOn="{StaticResource BaseButton}" TargetType="Button" />
+	<Style BasedOn="{StaticResource BaseComboBox}" TargetType="ComboBox" />
+	<Style BasedOn="{StaticResource BaseImage}" TargetType="Image" />
 
 	<!--  Specifieke Controls  -->
 	<Style
@@ -59,6 +69,13 @@
 		<Setter Property="VerticalContentAlignment" Value="Center" />
 		<Setter Property="Foreground" Value="#ffff0000" />
 		<Setter Property="Background" Value="LightSalmon" />
+	</Style>
+
+	<Style
+		x:Key="Image4List"
+		BasedOn="{StaticResource BaseImage}"
+		TargetType="Image">
+		<Setter Property="Width" Value="50" />
 	</Style>
 
 	<!--  Validion templates  -->

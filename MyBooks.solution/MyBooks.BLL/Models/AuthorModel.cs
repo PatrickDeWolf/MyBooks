@@ -11,7 +11,7 @@ namespace MyBooks.BLL
 	{
 
 		private int _authorId;
-		public int AutherId
+		public int AuthorId
 		{
 			get
 			{
@@ -25,6 +25,7 @@ namespace MyBooks.BLL
 				RaisePropertyChanged();
 			}
 		}// end AutherId
+
 
 		private string _firstname;
 		public string Firstname
@@ -69,10 +70,12 @@ namespace MyBooks.BLL
 			set
 			{
 				if (_pseudonym == value) return;
+				//_pseudonym = value.Trim().Length == 0 ? $"{Firstname} {Lastname}" : value;
 				_pseudonym = value;
 				RaisePropertyChanged();
 			}
 		}// end Pseudonym
+
 
 		private DateTime _dateOfBirth;
 		public DateTime DateOfBirth

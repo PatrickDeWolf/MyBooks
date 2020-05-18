@@ -6,6 +6,7 @@
 	xmlns:local="clr-namespace:MyBooks.Wpf"
 	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
 	xmlns:viewModels="clr-namespace:MyBooks.BLL;assembly=MyBooks.BLL"
+	xmlns:common="clr-namespace:MyBooks.Common"
 	StartupUri="Views/BooksView.xaml"
 	mc:Ignorable="d">
 
@@ -17,6 +18,8 @@
 			<viewModels:ViewModelLocator x:Key="Locator" d:IsDataSource="True" />
 
 			<!--  Registratie van de verschillende Converters  -->
+			<common:PathToImageConverter x:Key="ImageConverter" />
+
 
 			<ResourceDictionary.MergedDictionaries>
 				<ResourceDictionary Source="Common/MyBooksColors.xaml" />

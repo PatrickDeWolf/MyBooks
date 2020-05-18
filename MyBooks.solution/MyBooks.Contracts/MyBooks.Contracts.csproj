@@ -45,11 +45,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Models\ApprectiationEnum.cs" />
     <Compile Include="Models\IAuthor.cs" />
     <Compile Include="DataServices\IDataService.cs" />
     <Compile Include="Models\IBook.cs" />
+    <Compile Include="Models\IGenre.cs" />
     <Compile Include="Models\IGerne.cs" />
     <Compile Include="Models\IPublisher.cs" />
+    <Compile Include="Models\ReadStatusEnum.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

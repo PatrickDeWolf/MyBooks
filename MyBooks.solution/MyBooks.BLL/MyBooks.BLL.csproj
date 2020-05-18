@@ -64,13 +64,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataServices\CsvDataService.cs" />
+    <Compile Include="DataServices\DAL\AuthorCsvRepo.cs" />
+    <Compile Include="DataServices\DAL\BookCsvRepo.cs" />
+    <Compile Include="DataServices\DAL\GenreCsvRepo.cs" />
+    <Compile Include="DataServices\DAL\PublisherCsvRepo.cs" />
     <Compile Include="DataServices\DesignDataService.cs" />
     <Compile Include="DataServices\RunTimeDataService.cs" />
     <Compile Include="Helpers\ModelBase.cs" />
     <Compile Include="Models\ApprectiationEnum.cs" />
     <Compile Include="Models\AuthorModel.cs" />
     <Compile Include="Models\BookModel.cs" />
-    <Compile Include="Models\GerneModel.cs" />
+    <Compile Include="Models\GenreModel.cs" />
     <Compile Include="Models\PublisherModel.cs" />
     <Compile Include="Models\ReadStatusEnum.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

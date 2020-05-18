@@ -17,13 +17,47 @@ namespace MyBooks.BLL
 			}
 			set
 			{
-				if (_bookId == value) return;
+				if (_bookId == value)
+					return;
 
 				_bookId = value;
 				RaisePropertyChanged();
 			}
 		}// end BookId
 
+		private string _Isbn;
+		public string Isbn
+		{
+			get
+			{
+				return _Isbn;
+			}
+			set
+			{
+				if (_Isbn == value)
+					return;
+
+				_Isbn = value;
+				RaisePropertyChanged();
+			}
+		}// end Isbn
+
+		private string _Isbn13;
+		public string Isbn13
+		{
+			get
+			{
+				return _Isbn13;
+			}
+			set
+			{
+				if (_Isbn13 == value)
+					return;
+
+				_Isbn13 = value;
+				RaisePropertyChanged();
+			}
+		}// end Isbn13
 
 		private string _title;
 		public string Title
@@ -36,6 +70,23 @@ namespace MyBooks.BLL
 				RaisePropertyChanged();
 			}
 		}
+
+		private string _language;
+		public string Language
+		{
+			get
+			{
+				return _language;
+			}
+			set
+			{
+				if (_language == value)
+					return;
+
+				_language = value;
+				RaisePropertyChanged();
+			}
+		}// end Language
 
 		private string _frontcover;
 		public string FrontCover
@@ -53,40 +104,181 @@ namespace MyBooks.BLL
 			}
 		}// end FrontCover
 
-		//private Contracts.ReadStatusEnum _readStatus;
-		//public Contracts.ReadStatusEnum ReadStatus
-		//{
-		//	get
-		//	{
-		//		return _readStatus;
-		//	}
-		//	set
-		//	{
-		//		if (_readStatus == value) return;
+		private string _backCover;
+		public string BackCover
+		{
+			get
+			{
+				return _backCover;
+			}
+			set
+			{
+				if (_backCover == value)
+					return;
 
-		//		_readStatus = value;
-		//		RaisePropertyChanged();
-		//	}
-		//}// end ReadStatusEnum
+				_backCover = value;
+				RaisePropertyChanged();
+			}
+		}// end BackCover
 
-		//private Contracts.ApprectiationEnum _apprectiation;
-		//public Contracts.ApprectiationEnum Apprectiation
-		//{
-		//	get
-		//	{
-		//		return _apprectiation;
-		//	}
-		//	set
-		//	{
-		//		if (_apprectiation == value) return;
+		private bool _owned;
+		public bool Owned
+		{
+			get
+			{
+				return _owned;
+			}
+			set
+			{
+				if (_owned == value)
+					return;
 
-		//		_apprectiation = value;
-		//		RaisePropertyChanged();
-		//	}
-		//}// end Apprectiation
+				_owned = value;
+				RaisePropertyChanged();
+			}
+		}// end Owned
 
+		private Contracts.ReadStatusEnum _readStatus;
+		public Contracts.ReadStatusEnum ReadStatus
+		{
+			get
+			{
+				return _readStatus;
+			}
+			set
+			{
+				if (_readStatus == value)
+					return;
 
+				_readStatus = value;
+				RaisePropertyChanged();
+			}
+		}// end ReadStatusEnum
 
+		private Contracts.ApprectiationEnum _apprectiation;
+		public Contracts.ApprectiationEnum Apprectiation
+		{
+			get
+			{
+				return _apprectiation;
+			}
+			set
+			{
+				if (_apprectiation == value)
+					return;
+
+				_apprectiation = value;
+				RaisePropertyChanged();
+			}
+		}// end Apprectiation
+
+		private bool _isEbook;
+		public bool IsEbook
+		{
+			get
+			{
+				return _isEbook;
+			}
+			set
+			{
+				if (_isEbook == value)
+					return;
+
+				_isEbook = value;
+				RaisePropertyChanged();
+			}
+		}// end IsEbook
+
+		private string _serieName;
+		public string SerieName
+		{
+			get
+			{
+				return _serieName;
+			}
+			set
+			{
+				if (_serieName == value)
+					return;
+
+				_serieName = value;
+				RaisePropertyChanged();
+			}
+		}// end SerieName
+
+		private short _sequenceNumber;
+		public short SequenceNumber
+	
+		{
+			get
+			{
+				return _sequenceNumber;
+			}
+			set
+			{
+				if (_sequenceNumber == value)
+					return;
+
+				_sequenceNumber = value;
+				RaisePropertyChanged();
+			}
+		}// end SequenceNumber
+
+		private IPublisher _publisher;
+		public IPublisher Publisher
+		{
+			get
+			{
+				return _publisher??(_publisher=new PublisherModel());
+			}
+			set
+			{
+				if (_publisher == value)
+					return;
+
+				_publisher = value;
+				RaisePropertyChanged();
+			}
+		}// end Publisher
+
+		private IGenre _genre;
+		public IGenre Genre
+		{
+			get
+			{
+				return _genre ?? (_genre = new GerneModel());
+			}
+			set
+			{
+				if (_genre == value)
+					return;
+
+				_genre = value;
+				RaisePropertyChanged();
+			}
+		}// end Gerne
+
+		private IAuthor _author;
+		public IAuthor Author
+		{
+			get
+			{
+				return _author??(_author=new AuthorModel());
+			}
+			set
+			{
+				if (_author == value)
+					return;
+
+				_author = value;
+				RaisePropertyChanged();
+			}
+		}// end Author
+
+		//Alleen voor csv en Database bestanden
+		public int PublisherId { get; set; }
+		public int GenreId { get; set; }
+		public int AuthorId { get; set; }
 
 	} // end BookModel
 

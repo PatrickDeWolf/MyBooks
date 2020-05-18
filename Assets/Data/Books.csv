@@ -1,0 +1,4 @@
+BookId;Isbn;Isbn13;Title;Language;FrontCover;BackCover;Owned;ReadStatus;Apprectiation;IsEbook;SerieName;SequenceNumber;PublisherId;GerneId;AuthorId
+71fe72bf-251b-49c9-8613-068efb288b1b;;9781484240298;Building Xamarin.Forms Mobile Apps Using XAML;EN;NoImage.png;NoImage.png;1;1;0;0;ikke;0;1;3;3
+5673e127-cc60-4ea3-ac90-3eb5f441e454;;9789400503113;Kille Woede;NL;9789400503113.png;NoImage.png;0;2;4;0;Lucas Davenport;21;2;1;1
+0531c5ae-d243-48c8-9ffe-7188b5ff9705;;9789400504165;Geschreven in bloed;NL;9789400504165.png;NoImage.png;0;2;2;0;Lucas Davenport;22;2;1;1

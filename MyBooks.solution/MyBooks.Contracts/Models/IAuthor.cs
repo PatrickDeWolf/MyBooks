@@ -8,7 +8,7 @@ namespace MyBooks.Contracts
 {
 	public interface IAuthor
 	{
-
+		int AuthorId { get; set; }
 		string Firstname { get; set; }
 
 		string Lastname { get; set; }
