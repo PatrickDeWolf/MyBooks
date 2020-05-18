@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MyBooks.Contracts
 {
-	public interface IBook //<T, U> where T:Enum where U: Enum
+	public interface IBook 
 	{
 		Guid BookId { get; set; }
 		string Title { get; set; }

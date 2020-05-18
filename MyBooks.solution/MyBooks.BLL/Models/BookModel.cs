@@ -6,7 +6,7 @@ using MyBooks.Contracts;
 
 namespace MyBooks.BLL
 {
-	public class BookModel : ModelBase, IBook//, IBook<ReadStatusEnum, ApprectiationEnum>
+	public class BookModel : ModelBase, IBook
 	{
 		private Guid _bookId;
 		public Guid BookId
