@@ -124,6 +124,10 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="bin\Debug\Data\Authors.csv" />
+    <None Include="bin\Debug\Data\Books.csv" />
+    <None Include="bin\Debug\Data\Genres.csv" />
+    <None Include="bin\Debug\Data\Publishers.csv" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
