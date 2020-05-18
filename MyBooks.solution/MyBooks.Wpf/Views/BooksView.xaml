@@ -15,17 +15,17 @@
 		<Grid.RowDefinitions>
 			<RowDefinition Height="10" />
 			<RowDefinition Height="60" />
-			<RowDefinition Height="0.75*" />
-			<RowDefinition Height="Auto" />
+			<RowDefinition Height="45" />
+			<RowDefinition Height="*" />
 			<RowDefinition Height="0.15*" />
-			<RowDefinition Height="30" />
+			<RowDefinition Height="50" />
 			<RowDefinition Height="10" />
 		</Grid.RowDefinitions>
 
 		<Grid.ColumnDefinitions>
 			<ColumnDefinition Width="10" />
-			<ColumnDefinition Width="1*" />
-			<ColumnDefinition Width="1*" />
+			<ColumnDefinition Width="15*" />
+			<ColumnDefinition Width="25*" />
 			<ColumnDefinition Width="10" />
 		</Grid.ColumnDefinitions>
 
@@ -33,18 +33,22 @@
 			Grid.Row="1"
 			Grid.Column="0"
 			Grid.ColumnSpan="4"
+			Margin="0,0,-0.333,0"
 			Content="Books overview"
 			Style="{DynamicResource PageTitle}" />
 
 		<Label
 			Grid.Row="2"
 			Grid.Column="1"
-			Content="Select an author" />
+			Height="34"
+			Content="Select an author"
+			Style="{DynamicResource Bijschrift}" />
 
 		<ComboBox
 			Grid.Row="2"
 			Grid.Column="2"
 			ItemsSource="{Binding Authors}"
+			SelectedIndex="0"
 			SelectedItem="{Binding SelectedAuthor, Mode=TwoWay}">
 			<!--<ComboBoxItem Content="Select an author" />-->
 			<ComboBox.ItemTemplate>
@@ -56,8 +60,11 @@
 
 		<ListBox
 			Grid.Row="3"
+			Grid.RowSpan="2"
 			Grid.Column="1"
-			Grid.ColumnSpan="2"
+			Grid.ColumnSpan="3"
+			Margin="0,0.667,9.667,23.281"
+			VerticalAlignment="Stretch"
 			ItemsSource="{Binding Books, Mode=OneWay}">
 			<ListBox.ItemTemplate>
 				<DataTemplate>
@@ -72,6 +79,13 @@
 				</DataTemplate>
 			</ListBox.ItemTemplate>
 		</ListBox>
+
+		<Button
+			Grid.Row="5"
+			Grid.Column="1"
+			Margin="0,0,0,0.281"
+			Command="{Binding GetBookByAuthorCommand, Mode=OneWay}"
+			Content="Update Books" />
 
 	</Grid>
 

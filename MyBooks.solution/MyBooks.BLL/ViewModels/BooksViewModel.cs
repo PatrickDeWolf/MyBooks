@@ -4,7 +4,9 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 using GalaSoft.MvvmLight;
+using GalaSoft.MvvmLight.CommandWpf;
 using MyBooks.Contracts;
 
 namespace MyBooks.BLL
@@ -13,6 +15,7 @@ namespace MyBooks.BLL
 	{
 		private IDataService _dataService;
 
+		private  List<IBook> localBooks;
 
 		//List of all authors
 		private List<IAuthor> _authors; //_authorList - _listOfAuthors
@@ -67,7 +70,32 @@ namespace MyBooks.BLL
 			}
 		}// end Books
 
+		// MVVM Commands
 
+		public ICommand GetBookByAuthorCommand
+		{
+			get
+			{
+				// () => LAMDA of naamloze methode
+				return new RelayCommand( ()=>
+				{
+					Books = localBooks;
+					if (SelectedAuthor.AuthorId > 0)
+					{
+						Books = localBooks.Where(book => book.AuthorId == SelectedAuthor.AuthorId).ToList();
+					}
+				});
+			}
+		} // end GetBookByAuthorCommand
+
+
+		//public ICommand GetBookByAuthorCommand
+		//{
+		//	get
+		//	{
+		//		return new RelayCommand(GetBooksByAuthor);
+		//	}
+		//}
 
 
 		public BooksViewModel(IDataService dataService)
@@ -84,8 +112,11 @@ namespace MyBooks.BLL
 		private async void GetData()
 		{
 			Authors = await _dataService.GetAuthors();
+			Authors.Insert(0,new AuthorModel{AuthorId = 0,Pseudonym = "All"});
 
 			Books = await _dataService.GetBooks();
+
+			localBooks= new List<IBook>(Books);
 
 		}
 
@@ -98,7 +129,25 @@ namespace MyBooks.BLL
 			// de databron is een XML document			--> LINQ 2 XML
 			// de databron is een MS SQLServer			--> LINQ 2 SQL 
 			// de databron is een Database					--> SQL statements
-			// de databron is een database vie EF		--> LINQ 
+			// de databron is een database vie EF		--> LINQ Language INtergrated Query
+			Books = localBooks;
+			//if (SelectedAuthor.AuthorId > 0)
+			//{
+
+			//	//LINQ
+			//var query = (from book in localBooks
+			//							where book.AuthorId == SelectedAuthor.AuthorId
+			//							select book).ToList();
+
+			//Books = query;
+		
+			//}
+
+			// LINQ + Lamba expression -> Naamloze methode
+			if (SelectedAuthor.AuthorId>0)
+			{
+				Books = localBooks.Where(book => book.AuthorId == SelectedAuthor.AuthorId).ToList();
+			}
 
 		}
 

@@ -23,5 +23,8 @@ namespace MyBooks.Wpf.Views
 		{
 			InitializeComponent();
 		}
+
+		// Click event of the Close Button
+
 	}
 }

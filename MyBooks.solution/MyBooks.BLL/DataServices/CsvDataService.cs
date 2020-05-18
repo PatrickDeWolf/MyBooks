@@ -102,8 +102,7 @@ namespace MyBooks.BLL
 				book.Genre = genres.FirstOrDefault(record => record.GenreId == book.GenreId);
 				book.Author = authors.FirstOrDefault(record => record.AuthorId == book.AuthorId);
 			}
-
-
+			
 			return books;
 		}
 

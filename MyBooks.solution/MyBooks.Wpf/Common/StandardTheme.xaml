@@ -6,6 +6,7 @@
 		<Setter Property="FontSize" Value="18" />
 		<Setter Property="Foreground" Value="#ff0000ff" />
 		<Setter Property="VerticalAlignment" Value="Top" />
+		<Setter Property="HorizontalAlignment" Value="Left" />
 	</Style>
 
 	<Style x:Key="BaseTextBlock" TargetType="TextBlock">
@@ -41,7 +42,7 @@
 	<Style x:Key="BaseComboBox" TargetType="ComboBox">
 		<Setter Property="HorizontalAlignment" Value="Left" />
 		<Setter Property="VerticalAlignment" Value="Top" />
-		<Setter Property="Margin" Value="0,10,0,0" />
+		<Setter Property="Margin" Value="0,5" />
 		<Setter Property="Width" Value="250" />
 	</Style>
 
@@ -64,6 +65,7 @@
 		BasedOn="{StaticResource BaseLabel}"
 		TargetType="Label">
 		<Setter Property="FontSize" Value="26" />
+		<Setter Property="HorizontalAlignment" Value="Stretch" />
 		<Setter Property="HorizontalContentAlignment" Value="Center" />
 		<Setter Property="VerticalAlignment" Value="Stretch" />
 		<Setter Property="VerticalContentAlignment" Value="Center" />
@@ -71,6 +73,13 @@
 		<Setter Property="Background" Value="LightSalmon" />
 	</Style>
 
+	<Style
+		x:Key="Bijschrift"
+		BasedOn="{StaticResource BaseLabel}"
+		TargetType="Label">
+		<Setter Property="HorizontalAlignment" Value="Right" />
+		<Setter Property="Margin" Value="0,0,10,0" />
+	</Style>
 	<Style
 		x:Key="Image4List"
 		BasedOn="{StaticResource BaseImage}"
