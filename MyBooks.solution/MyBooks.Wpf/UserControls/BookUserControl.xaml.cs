@@ -10,16 +10,17 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace MyBooks.Wpf.Views
+namespace MyBooks.Wpf.UserControls
 {
 	/// <summary>
-	/// Interaction logic for BookView.xaml
+	/// Interaction logic for BookUserControl.xaml
 	/// </summary>
-	public partial class BookView : Window
+	public partial class BookUserControl : UserControl
 	{
-		public BookView()
+		public BookUserControl()
 		{
 			InitializeComponent();
 		}

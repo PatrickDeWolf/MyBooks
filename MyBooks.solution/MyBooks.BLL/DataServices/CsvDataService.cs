@@ -83,13 +83,13 @@ namespace MyBooks.BLL
 		#region Books methods
 		public void SaveBook(IBook book)
 		{
-			//
-			throw new NotImplementedException();
+			// het opslaan van een boek
+			BookCsvRepo.Save(book);
 		}
 
 		public async Task<List<IBook>> GetBooks()
 		{
-			var books = BookCsvRepo.GetItems(@"Data\Books.csv");
+			var books = BookCsvRepo.GetItems();
 
 			var authors = await GetAuthors();
 			var publishers = await GetPublishers();

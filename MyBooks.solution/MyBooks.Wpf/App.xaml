@@ -7,7 +7,7 @@
 	xmlns:local="clr-namespace:MyBooks.Wpf"
 	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
 	xmlns:viewModels="clr-namespace:MyBooks.BLL;assembly=MyBooks.BLL"
-	StartupUri="Views/BookView.xaml"
+	StartupUri="Views/BooksView.xaml"
 	mc:Ignorable="d">
 
 	<Application.Resources>

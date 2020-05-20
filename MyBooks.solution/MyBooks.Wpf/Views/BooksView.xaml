@@ -2,12 +2,15 @@
 	x:Class="MyBooks.Wpf.Views.BooksView"
 	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
 	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:UserControls="clr-namespace:MyBooks.Wpf.UserControls"
 	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
 	xmlns:local="clr-namespace:MyBooks.Wpf.Views"
 	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
 	Title="BooksView"
-	Width="800"
-	Height="450"
+	Width="1024"
+	Height="800"
+	d:DesignHeight="800"
+	d:DesignWidth="1024"
 	DataContext="{Binding BooksVm, Source={StaticResource Locator}}"
 	mc:Ignorable="d">
 
@@ -15,17 +18,16 @@
 		<Grid.RowDefinitions>
 			<RowDefinition Height="10" />
 			<RowDefinition Height="60" />
-			<RowDefinition Height="45" />
 			<RowDefinition Height="*" />
-			<RowDefinition Height="0.15*" />
-			<RowDefinition Height="50" />
+			<RowDefinition Height="30" />
 			<RowDefinition Height="10" />
 		</Grid.RowDefinitions>
 
 		<Grid.ColumnDefinitions>
 			<ColumnDefinition Width="10" />
-			<ColumnDefinition Width="15*" />
-			<ColumnDefinition Width="25*" />
+			<ColumnDefinition Width="1.2*" />
+			<ColumnDefinition Width="5" />
+			<ColumnDefinition Width="*" />
 			<ColumnDefinition Width="10" />
 		</Grid.ColumnDefinitions>
 
@@ -37,55 +39,18 @@
 			Content="Books overview"
 			Style="{DynamicResource PageTitle}" />
 
-		<Label
+		<UserControls:BooksUserControl
 			Grid.Row="2"
 			Grid.Column="1"
-			Height="34"
-			Content="Select an author"
-			Style="{DynamicResource Bijschrift}" />
+			Width="400"
+			HorizontalAlignment="Left" />
 
-		<ComboBox
+		<GridSplitter
 			Grid.Row="2"
 			Grid.Column="2"
-			ItemsSource="{Binding Authors}"
-			SelectedIndex="0"
-			SelectedItem="{Binding SelectedAuthor, Mode=TwoWay}">
-			<!--<ComboBoxItem Content="Select an author" />-->
-			<ComboBox.ItemTemplate>
-				<DataTemplate>
-					<Label Content="{Binding Pseudonym, Mode=OneWay}" />
-				</DataTemplate>
-			</ComboBox.ItemTemplate>
-		</ComboBox>
+			HorizontalAlignment="Stretch" />
 
-		<ListBox
-			Grid.Row="3"
-			Grid.RowSpan="2"
-			Grid.Column="1"
-			Grid.ColumnSpan="3"
-			Margin="0,0.667,9.667,23.281"
-			VerticalAlignment="Stretch"
-			ItemsSource="{Binding Books, Mode=OneWay}">
-			<ListBox.ItemTemplate>
-				<DataTemplate>
-					<StackPanel Orientation="Horizontal">
-						<Image Source="{Binding FrontCover, Converter={StaticResource ImageConverter}}" Style="{StaticResource Image4List}" />
-						<StackPanel Orientation="Vertical">
-							<Label Content="{Binding Title}" />
-							<Label Content="{Binding Genre.Genre}" />
-						</StackPanel>
-					</StackPanel>
-
-				</DataTemplate>
-			</ListBox.ItemTemplate>
-		</ListBox>
-
-		<Button
-			Grid.Row="5"
-			Grid.Column="1"
-			Margin="0,0,0,0.281"
-			Command="{Binding GetBookByAuthorCommand, Mode=OneWay}"
-			Content="Update Books" />
+		<UserControls:BookUserControl Grid.Row="2" Grid.Column="3" />
 
 	</Grid>
 

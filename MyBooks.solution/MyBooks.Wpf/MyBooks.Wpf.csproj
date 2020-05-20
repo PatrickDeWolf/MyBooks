@@ -72,14 +72,17 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Common\PathToImageConverter.cs" />
+    <Compile Include="UserControls\BooksUserControl.xaml.cs">
+      <DependentUpon>BooksUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\BookUserControl.xaml.cs">
+      <DependentUpon>BookUserControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\AuthorView.xaml.cs">
       <DependentUpon>AuthorView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\BooksView.xaml.cs">
       <DependentUpon>BooksView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\BookView.xaml.cs">
-      <DependentUpon>BookView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\PublisherView.xaml.cs">
       <DependentUpon>PublisherView.xaml</DependentUpon>
@@ -96,15 +99,19 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="UserControls\BooksUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\BookUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\AuthorView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\BooksView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\BookView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -159,5 +166,6 @@
   <ItemGroup>
     <Resource Include="Assets\NoImage.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

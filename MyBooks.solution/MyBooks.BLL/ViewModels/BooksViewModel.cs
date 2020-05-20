@@ -14,6 +14,7 @@ namespace MyBooks.BLL
 	public class BooksViewModel:ViewModelBase
 	{
 		private IDataService _dataService;
+		public string PageTitle => "Books";
 
 		private  List<IBook> localBooks;
 
