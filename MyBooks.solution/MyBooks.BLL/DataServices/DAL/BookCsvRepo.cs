@@ -176,6 +176,9 @@ namespace MyBooks.BLL
 				return (int)value;
 			if (dataType == typeof(bool))
 				return (bool)value ? 1 : 0;
+			// uncommand when the text values contains a ;
+			//if(dataType == typeof(string))
+			//	return "\"" + value +"\"";
 
 			return value;
 			//return null;

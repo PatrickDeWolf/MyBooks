@@ -72,6 +72,8 @@
     <Compile Include="DataServices\DesignDataService.cs" />
     <Compile Include="DataServices\RunTimeDataService.cs" />
     <Compile Include="Helpers\ModelBase.cs" />
+    <Compile Include="Messages\BookMessage.cs" />
+    <Compile Include="Messages\ErrorMessage.cs" />
     <Compile Include="Models\ApprectiationEnum.cs" />
     <Compile Include="Models\AuthorModel.cs" />
     <Compile Include="Models\BookModel.cs" />
@@ -98,5 +100,6 @@
       <Name>MyBooks.Contracts</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

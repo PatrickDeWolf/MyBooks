@@ -35,7 +35,6 @@
 			Grid.Row="1"
 			Grid.Column="0"
 			Grid.ColumnSpan="4"
-			Margin="0,0,-0.333,0"
 			Content="Books overview"
 			Style="{DynamicResource PageTitle}" />
 
@@ -51,6 +50,13 @@
 			HorizontalAlignment="Stretch" />
 
 		<UserControls:BookUserControl Grid.Row="2" Grid.Column="3" />
+
+		<TextBlock
+			Grid.Row="3"
+			Grid.Column="1"
+			Grid.ColumnSpan="3"
+			Background="Yellow"
+			Text="{Binding ErrorMessage, Mode=TwoWay}" />
 
 	</Grid>
 

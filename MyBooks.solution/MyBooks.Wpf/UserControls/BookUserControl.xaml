@@ -24,9 +24,9 @@
 		</Grid.RowDefinitions>
 
 		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="0.5*" />
 			<ColumnDefinition Width="1*" />
-			<ColumnDefinition Width="1*" />
-			<ColumnDefinition Width="1*" />
+			<ColumnDefinition Width="0.5*" />
 			<ColumnDefinition Width="1*" />
 
 		</Grid.ColumnDefinitions>
@@ -54,6 +54,17 @@
 			Style="{DynamicResource ValidationBulletTextBox}"
 			Text="{Binding Book.Title, Mode=TwoWay}" />
 
+		<Label
+			Grid.Row="2"
+			Grid.Column="0"
+			Content="ISBN"
+			Style="{DynamicResource Bijschrift}" />
+
+		<Label
+			Grid.Row="2"
+			Grid.Column="2"
+			Content="ISBN13"
+			Style="{DynamicResource Bijschrift}" />
 
 		<Button
 			Grid.Row="8"

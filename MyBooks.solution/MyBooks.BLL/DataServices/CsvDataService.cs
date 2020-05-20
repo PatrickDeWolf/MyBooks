@@ -4,6 +4,8 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using GalaSoft.MvvmLight.Messaging;
+using MyBooks.BLL.Messages;
 using MyBooks.Contracts;
 
 namespace MyBooks.BLL
@@ -84,7 +86,20 @@ namespace MyBooks.BLL
 		public void SaveBook(IBook book)
 		{
 			// het opslaan van een boek
-			BookCsvRepo.Save(book);
+			try
+			{
+				
+				BookCsvRepo.Save(book);
+
+				Messenger.Default.Send<BookMessage>(new BookMessage{BookItem=book});
+
+			}
+			catch (Exception ex)
+			{
+				// Sending a error message of type MVVM Light message
+				Messenger.Default.Send<ErrorMessage>(new ErrorMessage{Message = ex.Message});
+				//throw;
+			}
 		}
 
 		public async Task<List<IBook>> GetBooks()

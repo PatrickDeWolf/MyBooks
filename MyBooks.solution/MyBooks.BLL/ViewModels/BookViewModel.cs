@@ -16,22 +16,7 @@ namespace MyBooks.BLL
 
 		public string PageTitle => "Book";
 
-		private string _errorMessage;
-		public string ErrorMessage
-		{
-			get
-			{
-				return _errorMessage;
-			}
-			set
-			{
-				if (_errorMessage == value)
-					return;
 
-				_errorMessage = value;
-				RaisePropertyChanged();
-			}
-		}// end ErrorMessage
 
 
 		// Boek
@@ -170,6 +155,8 @@ namespace MyBooks.BLL
 		public BookViewModel(IDataService dataService)
 		{
 			_dataService = dataService;
+	
+
 			GetData();
 		}
 
@@ -190,7 +177,7 @@ namespace MyBooks.BLL
 				BookId = Guid.NewGuid(),
 				Isbn = "N.A.",
 				Isbn13 = "1234567890123",
-				Title = "MVVM in Xamarin Forms",
+				Title = "Joepie bijna C#9",
 				Language = "NL",
 				FrontCover = "NoImage.png",
 				BackCover = "NoImage.png",

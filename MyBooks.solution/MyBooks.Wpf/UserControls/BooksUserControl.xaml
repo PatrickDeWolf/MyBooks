@@ -59,7 +59,7 @@
 
 			<ItemsControl.ItemTemplate>
 				<DataTemplate>
-					<StackPanel Orientation="Horizontal">
+					<StackPanel Orientation="Vertical">
 						<Image Source="{Binding FrontCover, Converter={StaticResource ImageConverter}}" Style="{StaticResource Image4List}" />
 						<StackPanel Orientation="Vertical">
 							<TextBlock
