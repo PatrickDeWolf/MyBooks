@@ -9,7 +9,7 @@ using MyBooks.Contracts;
 
 namespace MyBooks.BLL
 {
-	public static class GenreCsvRepo //CsvRepo<T>
+	public static class GenreCsvRepo
 	{
 
 		public static List<IGenre> GetItems(string file)
@@ -44,15 +44,15 @@ namespace MyBooks.BLL
 
 			string[] items = lijn.Split(new char[] { ';' });
 
-			if (items.Length < 3)// aantal verplichte velden
+			if (items.Length < 3)// aantal verplichet velden
 				return null;
 
 			IGenre data =
-				new GerneModel
+				new GenreModel
 				{
 					GenreId = Convert.ToInt32(items[0]),
 					Genre = items[1].ToString(),
-					Pictogram = InputValidation.IsFilledIn(items[2]) ? items[2] : "NoImage.png",
+					Pictogram = InputValidation.IsFilledIn(items[2]) ? items[2] : "(ONBEKEND)",
 				
 				};
 			return data;

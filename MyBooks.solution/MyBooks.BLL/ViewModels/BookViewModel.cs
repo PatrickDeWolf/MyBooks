@@ -16,9 +16,6 @@ namespace MyBooks.BLL
 
 		public string PageTitle => "Book";
 
-
-
-
 		// Boek
 		// lijsten van Genre, Publisher, Author
 
@@ -76,22 +73,22 @@ namespace MyBooks.BLL
 		}// end Authors
 
 		// Publisher Objects
-		private IPublisher _selectedPublisher;
-		public IPublisher SelectedPublisher
-		{
-			get
-			{
-				return _selectedPublisher ?? (_selectedPublisher = new PublisherModel());
-			}
-			set
-			{
-				if (_selectedPublisher == value)
-					return;
+		//private IPublisher _selectedPublisher;
+		//public IPublisher SelectedPublisher
+		//{
+		//	get
+		//	{
+		//		return _selectedPublisher ?? (_selectedPublisher = new PublisherModel());
+		//	}
+		//	set
+		//	{
+		//		if (_selectedPublisher == value)
+		//			return;
 
-				_selectedPublisher = value;
-				RaisePropertyChanged();
-			}
-		}// end SelectedPublisher
+		//		_selectedPublisher = value;
+		//		RaisePropertyChanged();
+		//	}
+		//}// end SelectedPublisher
 
 		private List<IPublisher> _publishers;
 		public List<IPublisher> Publishers
@@ -111,19 +108,19 @@ namespace MyBooks.BLL
 		}// end Publishers 
 
 		// Gerne objects
-		private IGenre _selectedGenre;
-		public IGenre SelectedGenre
-		{
-			get => _selectedGenre ?? (_selectedGenre = new GerneModel());
-			set
-			{
-				if (_selectedGenre == value)
-					return;
+		//private IGenre _selectedGenre;
+		//public IGenre SelectedGenre
+		//{
+		//	get => _selectedGenre ?? (_selectedGenre = new GenreModel());
+		//	set
+		//	{
+		//		if (_selectedGenre == value)
+		//			return;
 
-				_selectedGenre = value;
-				RaisePropertyChanged();
-			}
-		}// end SelectedGenre
+		//		_selectedGenre = value;
+		//		RaisePropertyChanged();
+		//	}
+		//}// end SelectedGenre
 
 		private List<IGenre> _genres;
 		public List<IGenre> Genres
@@ -156,12 +153,13 @@ namespace MyBooks.BLL
 		{
 			_dataService = dataService;
 	
+		//	Book=new BookModel(){Title = "",Author = null};
 
 			GetData();
 		}
 
 		// Opdracht Save, 
-		// nHet ovullen van de nodige collecties
+		// Het opvullen van de nodige collecties
 		private async void GetData()
 		{
 			Publishers = await _dataService.GetPublishers();
@@ -172,29 +170,12 @@ namespace MyBooks.BLL
 
 		private void Save()
 		{
-			Book = new BookModel
-			{
-				BookId = Guid.NewGuid(),
-				Isbn = "N.A.",
-				Isbn13 = "1234567890123",
-				Title = "Joepie bijna C#9",
-				Language = "NL",
-				FrontCover = "NoImage.png",
-				BackCover = "NoImage.png",
-				Owned = false,
-				ReadStatus = Contracts.ReadStatusEnum.Unread,
-				Apprectiation = Contracts.ApprectiationEnum.VeryBAd,
-				IsEbook = true,
-				SerieName = "N.A.",
-				SequenceNumber = 0,
-				Publisher = new PublisherModel {PublisherId = 1},
-				Genre = new GerneModel {GenreId = 1},
-				Author = new AuthorModel {AuthorId = 1},
-				PublisherId = 1,
-				GenreId = 1,
-				AuthorId = 1
-			};
+			
 			_dataService.SaveBook(Book);
+
+			Book=new BookModel();
+			SelectedAuthor=new AuthorModel();
+
 		}
 
 

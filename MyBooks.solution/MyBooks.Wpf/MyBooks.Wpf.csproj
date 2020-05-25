@@ -162,6 +162,10 @@
       <Project>{7d6a533e-e33d-4856-9a35-ee1661543d3b}</Project>
       <Name>MyBooks.BLL</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MyBooks.Contracts\MyBooks.Contracts.csproj">
+      <Project>{38ea486c-a966-4d51-a172-a9bb7c2b044c}</Project>
+      <Name>MyBooks.Contracts</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Assets\NoImage.png" />

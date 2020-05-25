@@ -22,12 +22,12 @@ namespace MyBooks.Wpf.Views
 		public BooksView()
 		{
 			InitializeComponent();
-
-			// registration of the errorMessage - type MvvM Light
-
 		}
 
-		// Click event of the Close Button
+		private void BooksUserControl_Loaded(object sender, RoutedEventArgs e)
+		{
+
+		}
 
 	}
 }

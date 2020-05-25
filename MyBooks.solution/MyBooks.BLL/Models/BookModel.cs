@@ -1,12 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
+using GeneralHelper.Lib;
 using MyBooks.Contracts;
 
 
 namespace MyBooks.BLL
 {
-	public class BookModel : ModelBase, IBook//, IBook<ReadStatusEnum, ApprectiationEnum>
+	public class BookModel : ModelBase, IBook, IDataErrorInfo
 	{
 		private Guid _bookId;
 		public Guid BookId
@@ -62,10 +64,14 @@ namespace MyBooks.BLL
 		private string _title;
 		public string Title
 		{
-			get { return _title; }
+			get
+			{
+				return _title;
+			}
 			set
 			{
-				if (_title == value) return;
+				if (_title == value)
+					return;
 				_title = value;
 				RaisePropertyChanged();
 			}
@@ -88,7 +94,7 @@ namespace MyBooks.BLL
 			}
 		}// end Language
 
-		private string _frontcover;
+		private string _frontcover="NoImage.png";
 		public string FrontCover
 		{
 			get
@@ -97,14 +103,15 @@ namespace MyBooks.BLL
 			}
 			set
 			{
-				if (_frontcover == value) return;
+				if (_frontcover == value)
+					return;
 
 				_frontcover = value;
 				RaisePropertyChanged();
 			}
 		}// end FrontCover
 
-		private string _backCover;
+		private string _backCover="NoImage.png";
 		public string BackCover
 		{
 			get
@@ -208,7 +215,7 @@ namespace MyBooks.BLL
 
 		private short _sequenceNumber;
 		public short SequenceNumber
-	
+
 		{
 			get
 			{
@@ -229,7 +236,7 @@ namespace MyBooks.BLL
 		{
 			get
 			{
-				return _publisher??(_publisher=new PublisherModel());
+				return _publisher ?? (_publisher = new PublisherModel());
 			}
 			set
 			{
@@ -246,7 +253,7 @@ namespace MyBooks.BLL
 		{
 			get
 			{
-				return _genre ?? (_genre = new GerneModel());
+				return _genre ?? (_genre = new GenreModel());
 			}
 			set
 			{
@@ -263,7 +270,7 @@ namespace MyBooks.BLL
 		{
 			get
 			{
-				return _author??(_author=new AuthorModel());
+				return _author ?? (_author = new AuthorModel());
 			}
 			set
 			{
@@ -276,9 +283,98 @@ namespace MyBooks.BLL
 		}// end Author
 
 		//Alleen voor csv en Database bestanden
-		public int PublisherId { get; set; }
-		public int GenreId { get; set; }
-		public int AuthorId { get; set; }
+		public int PublisherId
+		{
+			get; set;
+		}
+		public int GenreId
+		{
+			get; set;
+		}
+		public int AuthorId
+		{
+			get; set;
+		}
+
+		public string this[string columnName]
+		{
+			get
+			{
+	
+				switch (columnName)
+				{
+					case nameof(Title):
+						if (!InputValidation.IsFilledIn(Title))
+						{
+							return $"The {columnName} is a required field";
+						}
+						break;
+
+					case nameof(Language):
+						if (!InputValidation.IsFilledIn(Language))
+						{
+							return $"The {columnName} is a required field";
+						}
+						break;
+
+					case nameof(Isbn13):
+						if (InputValidation.IsFilledIn(Isbn13))
+						{
+							
+							if ((Isbn13.Length < 13 || InputValidation.IsNUll(Isbn13)) || !InputValidation.IsLong(Isbn13))
+							{
+								return $"The value isn't a correct {columnName}, the length must be 13 lang!";
+							}
+						}
+
+
+						break;
+
+
+					case nameof(Author):
+						if (InputValidation.IsNUll(Author))
+						{
+							return $"The {columnName} can't be null!";
+						}
+						else if (Author.AuthorId == 0)
+						{
+							return $"The books {columnName} is required!";
+						}
+						break;
+
+					case nameof(Genre):
+						if (InputValidation.IsNUll(Genre))
+						{
+							return $"The {columnName} can't be null!";
+						}
+						else if (Genre.GenreId == 0)
+						{
+							return $"The books {columnName} is required!";
+						}
+						break;
+
+					case nameof(Publisher):
+						if (InputValidation.IsNUll(Publisher))
+						{
+							return $"The {columnName} can't be null!";
+						}
+						else if (Publisher.PublisherId == 0)
+						{
+							return $"The books {columnName} is required!";
+						}
+						break;
+
+				}
+
+				return string.Empty;
+			}
+		}
+
+
+		public string Error
+		{
+			get;
+		}
 
 	} // end BookModel
 

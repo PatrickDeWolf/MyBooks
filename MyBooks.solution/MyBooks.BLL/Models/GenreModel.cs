@@ -6,7 +6,7 @@ using MyBooks.Contracts;
 
 namespace MyBooks.BLL
 {
-	public class GerneModel:ViewModelBase, IGenre
+	public class GenreModel:ViewModelBase, IGenre
 	{
 		private int _genreId;
 		public int GenreId

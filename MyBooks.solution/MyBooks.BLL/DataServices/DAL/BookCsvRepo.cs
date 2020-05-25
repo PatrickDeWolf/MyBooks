@@ -77,38 +77,39 @@ namespace MyBooks.BLL
 				using (StreamWriter writer =new StreamWriter(fullPath,true))
 				{
 
-					PropertyInfo[] bookProperties = book.GetType().GetProperties();
-					var record = "";
+				//	PropertyInfo[] bookProperties = book.GetType().GetProperties();
+					//var record = "";
 
-					foreach (var prop in bookProperties)
-					{
-						var value = ConvertToCorrectValue(prop, book);
-						//var value= prop.GetValue(book, null);
-						if(value!=null)
-							record += $"{value};";
+					//foreach (var prop in bookProperties)
+					//{
+					//	var value = ConvertToCorrectValue(prop, book);
+					//	//var value= prop.GetValue(book, null);
+					//	if(value!=null)
+					//		record += $"{value};";
 
-					}
-					writer.WriteLine(record.Remove(record.Length-1));
+					//}
+					//writer.WriteLine(record.Remove(record.Length-1));
 
 					//book.prop1+";"+book.prop2+";"+ ......
 
-					//var record = Guid.NewGuid().ToString();
-					//record += $";{book.Isbn}";
-					//record += $";{book.Isbn13}";
-					//record += $";{book.Title}";
-					//record += $";{book.Language}";
-					//record += $";{book.FrontCover}";
-					//record += $";{book.BackCover}";
-					//record += book.Owned ? ";1": ";0";
-					//record += $";{(int)book.ReadStatus}";
-					//record += $";{(int)book.Apprectiation}";
-					//record += book.IsEbook ? ";1" : ";0";
-					//record += $";{book.SerieName}";
-					//record += $";{book.SequenceNumber}";
-					//record += $";{book.PublisherId}";
-					//record += $";{book.GenreId}";
-					//record += $";{book.AuthorId}";
+					var record = Guid.NewGuid().ToString();
+					record += $";{book.Isbn}";
+					record += $";{book.Isbn13}";
+					record += $";{book.Title}";
+					record += $";{book.Language}";
+					record += $";{book.FrontCover}";
+					record += $";{book.BackCover}";
+					record += book.Owned ? ";1" : ";0";
+					record += $";{(int)book.ReadStatus}";
+					record += $";{(int)book.Apprectiation}";
+					record += book.IsEbook ? ";1" : ";0";
+					record += $";{book.SerieName}";
+					record += $";{book.SequenceNumber}";
+					record += $";{book.Publisher.PublisherId}";
+					record += $";{book.Genre.GenreId}";
+					record += $";{book.Author.AuthorId}";
 
+					writer.WriteLine(record);
 
 				}
 			}
@@ -168,7 +169,7 @@ namespace MyBooks.BLL
 				return null;
 			if (dataType == typeof(PublisherModel))
 				return null;
-			if (dataType == typeof(GerneModel))
+			if (dataType == typeof(GenreModel))
 				return null;
 			if (dataType == typeof(Contracts.ReadStatusEnum))
 				return (int)value;

@@ -7,11 +7,10 @@
 	xmlns:local="clr-namespace:MyBooks.Wpf.Views"
 	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
 	Title="BooksView"
-	Width="1024"
+	Width="1200"
 	Height="800"
-	d:DesignHeight="800"
-	d:DesignWidth="1024"
 	DataContext="{Binding BooksVm, Source={StaticResource Locator}}"
+	WindowState="Maximized"
 	mc:Ignorable="d">
 
 	<Grid>
@@ -25,7 +24,7 @@
 
 		<Grid.ColumnDefinitions>
 			<ColumnDefinition Width="10" />
-			<ColumnDefinition Width="1.2*" />
+			<ColumnDefinition Width="400" />
 			<ColumnDefinition Width="5" />
 			<ColumnDefinition Width="*" />
 			<ColumnDefinition Width="10" />
@@ -34,29 +33,21 @@
 		<Label
 			Grid.Row="1"
 			Grid.Column="0"
-			Grid.ColumnSpan="4"
+			Grid.ColumnSpan="5"
 			Content="Books overview"
 			Style="{DynamicResource PageTitle}" />
 
 		<UserControls:BooksUserControl
 			Grid.Row="2"
 			Grid.Column="1"
-			Width="400"
-			HorizontalAlignment="Left" />
-
+			VerticalAlignment="Top"
+			Loaded="BooksUserControl_Loaded" />
 		<GridSplitter
 			Grid.Row="2"
 			Grid.Column="2"
 			HorizontalAlignment="Stretch" />
-
 		<UserControls:BookUserControl Grid.Row="2" Grid.Column="3" />
 
-		<TextBlock
-			Grid.Row="3"
-			Grid.Column="1"
-			Grid.ColumnSpan="3"
-			Background="Yellow"
-			Text="{Binding ErrorMessage, Mode=TwoWay}" />
 
 	</Grid>
 

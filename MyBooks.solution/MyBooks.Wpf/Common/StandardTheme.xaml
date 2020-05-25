@@ -1,47 +1,58 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
-
-	<!--  Base styling for controls  -->
-	<Style x:Key="BaseLabel" TargetType="Label">
-		<Setter Property="FontSize" Value="18" />
-		<Setter Property="Foreground" Value="#ff0000ff" />
+	<!--  Instellingen voor ALLE controls  -->
+	<Style x:Key="ControlBaseStyle" TargetType="{x:Type Control}">
 		<Setter Property="VerticalAlignment" Value="Top" />
 		<Setter Property="HorizontalAlignment" Value="Left" />
+		<Setter Property="Height" Value="30" />
+		<Setter Property="FontSize" Value="12" />
+	</Style>
+
+	<!--  Base styling for controls  -->
+	<Style
+		x:Key="BaseLabel"
+		BasedOn="{StaticResource ControlBaseStyle}"
+		TargetType="Label">
+		<Setter Property="Foreground" Value="#ff0000ff" />
 	</Style>
 
 	<Style x:Key="BaseTextBlock" TargetType="TextBlock">
-		<Setter Property="FontSize" Value="18" />
 		<Setter Property="Foreground" Value="#ff0000ff" />
-		<Setter Property="VerticalAlignment" Value="Top" />
+
 	</Style>
 
-	<Style x:Key="BaseTextBox" TargetType="TextBox">
-		<Setter Property="FontSize" Value="18" />
+	<Style
+		x:Key="BaseTextBox"
+		BasedOn="{StaticResource ControlBaseStyle}"
+		TargetType="TextBox">
+		<Setter Property="VerticalContentAlignment" Value="Center" />
 		<Setter Property="Foreground" Value="#ff0000ff" />
-		<Setter Property="VerticalAlignment" Value="Top" />
-		<Setter Property="HorizontalAlignment" Value="Left" />
+
 		<Setter Property="Width" Value="250" />
 
 	</Style>
 
-	<Style x:Key="BaseDatePicker" TargetType="DatePicker">
-		<Setter Property="FontSize" Value="18" />
+	<Style
+		x:Key="BaseDatePicker"
+		BasedOn="{StaticResource ControlBaseStyle}"
+		TargetType="DatePicker">
 		<Setter Property="Foreground" Value="#ff0000ff" />
-		<Setter Property="VerticalAlignment" Value="Top" />
-		<Setter Property="HorizontalAlignment" Value="Left" />
 		<Setter Property="Width" Value="250" />
 	</Style>
 
-	<Style x:Key="BaseButton" TargetType="Button">
+	<Style
+		x:Key="BaseButton"
+		BasedOn="{StaticResource ControlBaseStyle}"
+		TargetType="Button">
 		<Setter Property="Width" Value="135" />
 		<Setter Property="Height" Value="35" />
-		<Setter Property="HorizontalAlignment" Value="Left" />
 		<Setter Property="VerticalAlignment" Value="Bottom" />
 	</Style>
 
-	<Style x:Key="BaseComboBox" TargetType="ComboBox">
-		<Setter Property="HorizontalAlignment" Value="Left" />
-		<Setter Property="VerticalAlignment" Value="Top" />
+	<Style
+		x:Key="BaseComboBox"
+		BasedOn="{StaticResource ControlBaseStyle}"
+		TargetType="ComboBox">
 		<Setter Property="Margin" Value="0,5" />
 		<Setter Property="Width" Value="250" />
 	</Style>
@@ -69,6 +80,7 @@
 		<Setter Property="HorizontalContentAlignment" Value="Center" />
 		<Setter Property="VerticalAlignment" Value="Stretch" />
 		<Setter Property="VerticalContentAlignment" Value="Center" />
+		<Setter Property="Height" Value="50" />
 		<Setter Property="Foreground" Value="#ffff0000" />
 		<Setter Property="Background" Value="LightSalmon" />
 	</Style>
@@ -78,13 +90,25 @@
 		BasedOn="{StaticResource BaseLabel}"
 		TargetType="Label">
 		<Setter Property="HorizontalAlignment" Value="Right" />
-		<Setter Property="Margin" Value="0,0,10,0" />
+		<!--<Setter Property="Margin" Value="0,0,10,0" />-->
 	</Style>
+
 	<Style
 		x:Key="Image4List"
 		BasedOn="{StaticResource BaseImage}"
 		TargetType="Image">
 		<Setter Property="Width" Value="50" />
+	</Style>
+
+	<Style
+		x:Key="BookTitle"
+		BasedOn="{StaticResource BaseTextBlock}"
+		TargetType="TextBlock">
+		<Setter Property="FontSize" Value="10" />
+		<Setter Property="Width" Value="60" />
+		<Setter Property="TextWrapping" Value="Wrap" />
+		<Setter Property="TextTrimming" Value="WordEllipsis" />
+
 	</Style>
 
 	<!--  Validion templates  -->
@@ -106,24 +130,22 @@
 					FontWeight="Bold"
 					Foreground="Yellow"
 					Text="!" />
-
 			</Border>
-
 			<AdornedElementPlaceholder x:Name="customAdorner" VerticalAlignment="Center">
-				<!--  The border round the TextBox  -->
+				<!--  The border round the control  -->
 				<Border BorderBrush="{StaticResource ErrorForegroundBrush}" BorderThickness="1" />
 			</AdornedElementPlaceholder>
 
 		</DockPanel>
 	</ControlTemplate>
 
+	<ControlTemplate x:Key="TextErrorTemplate" />
 
 	<!--  Validation Controls  -->
 	<Style
 		x:Key="ValidationBulletTextBox"
 		BasedOn="{StaticResource BaseTextBox}"
 		TargetType="TextBox">
-
 		<Setter Property="Validation.ErrorTemplate" Value="{StaticResource BulletErrorToolTipTemplate}" />
 
 	</Style>
@@ -132,7 +154,15 @@
 		x:Key="ValidationBulletDateTicker"
 		BasedOn="{StaticResource BaseDatePicker}"
 		TargetType="DatePicker">
+		<Setter Property="Validation.ErrorTemplate" Value="{StaticResource BulletErrorToolTipTemplate}" />
 
+	</Style>
+
+
+	<Style
+		x:Key="ValidationBulletCombobox"
+		BasedOn="{StaticResource BaseComboBox}"
+		TargetType="ComboBox">
 		<Setter Property="Validation.ErrorTemplate" Value="{StaticResource BulletErrorToolTipTemplate}" />
 
 	</Style>
