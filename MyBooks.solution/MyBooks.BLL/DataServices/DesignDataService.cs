@@ -68,7 +68,7 @@ namespace MyBooks.BLL
 				new AuthorModel
 				{
 					AuthorId=1, Firstname="John Roswell",Lastname="Camp",Pseudonym="John Sandford",
-					DateOfBirth=new DateTime(),Nationality="USA",Photo="",
+					DateOfBirth=DateTime.Today,Nationality="USA",Photo="",
 					Books=new List<IBook>
 					{
 						new BookModel{BookId= Guid.NewGuid(),Title= "Kille Woede", FrontCover= "9789400503113.png" },

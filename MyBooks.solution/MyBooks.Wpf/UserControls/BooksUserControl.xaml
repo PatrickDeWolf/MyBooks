@@ -82,6 +82,11 @@
 						<StackPanel Margin="5,0,0,0" Orientation="Vertical">
 							<TextBlock Style="{DynamicResource BookTitle}" Text="{Binding Title}" />
 							<Label Content="{Binding Genre.Genre}" />
+							<Button
+								Width="15"
+								Height="15"
+								Content="E"
+								FontSize="8" />
 						</StackPanel>
 					</StackPanel>
 				</DataTemplate>

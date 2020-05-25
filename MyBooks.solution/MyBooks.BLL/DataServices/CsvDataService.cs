@@ -15,7 +15,15 @@ namespace MyBooks.BLL
 		#region Publisher methods
 		public void SavePublisher(IPublisher publisher)
 		{
-			throw new NotImplementedException();
+			try
+			{
+				PublisherCsvRepo.Save(publisher);
+			}
+			catch (Exception ex)
+			{
+				// Sending a error message of type MVVM Light message
+				Messenger.Default.Send<ErrorMessage>(new ErrorMessage { Message = ex.Message });
+			}
 		}
 
 		public async Task<IPublisher> GetPublishers(IPublisher publisher)
@@ -29,7 +37,7 @@ namespace MyBooks.BLL
 			//	var publishers = PublisherCsvRepo.GetItems(@"Data\Publishers.csv");
 			//return publishers; //PublisherCsvRepo.GetItems(@"Data\Publishers.csv");
 
-			return PublisherCsvRepo.GetItems(@"Data\Publishers.csv"); // \t -> Tab \n -> new line
+			return PublisherCsvRepo.GetItems(); // \t -> Tab \n -> new line
 
 		} // end GetPublishers
 

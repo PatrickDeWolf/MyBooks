@@ -76,8 +76,7 @@ namespace MyBooks.BLL
 			}
 		}// end Pseudonym
 
-
-		private DateTime _dateOfBirth;
+		private DateTime _dateOfBirth=DateTime.Today;
 		public DateTime DateOfBirth
 		{
 			get
@@ -158,6 +157,7 @@ namespace MyBooks.BLL
 			}
 		}// end Books
 
+		//public Guid BookId { get; set; }		
 
 		public string Error => "";
 

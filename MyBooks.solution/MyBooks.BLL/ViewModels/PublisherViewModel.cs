@@ -4,8 +4,9 @@ using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Security.Cryptography;
 using System.Text;
+using System.Windows.Input;
 using GalaSoft.MvvmLight;
-
+using GalaSoft.MvvmLight.Command;
 using MyBooks.Contracts;
 
 
@@ -23,7 +24,10 @@ namespace MyBooks.BLL
 
 		public string PageTitle
 		{
-			get { return "Publisher"; }
+			get
+			{
+				return "Publisher";
+			}
 
 		}
 
@@ -32,11 +36,15 @@ namespace MyBooks.BLL
 
 		public PublisherModel Publisher
 		{
-			get { return _publisher ?? (_publisher = new PublisherModel()); }
+			get
+			{
+				return _publisher ?? (_publisher = new PublisherModel());
+			}
 
 			set
 			{
-				if (_publisher == value) return;
+				if (_publisher == value)
+					return;
 				_publisher = value;
 				RaisePropertyChanged();
 
@@ -55,7 +63,8 @@ namespace MyBooks.BLL
 			}
 			set
 			{
-				if (_publishers == value) return;
+				if (_publishers == value)
+					return;
 
 				_publishers = value;
 				RaisePropertyChanged();
@@ -64,7 +73,14 @@ namespace MyBooks.BLL
 
 
 		// MVVM Commands
-		// public ICommand SaveCommand{ get{ //aanmaken van de ICommand implementatie}}
+		public ICommand SaveCommand
+		{
+			get
+			{ //aanmaken van de ICommand implementatie
+
+				return new RelayCommand(Save);
+			}
+		}
 
 
 		// constructor
@@ -72,7 +88,7 @@ namespace MyBooks.BLL
 		{
 			_dataService = dataservice;
 
-			DesignData();
+			
 
 		}
 
@@ -80,6 +96,9 @@ namespace MyBooks.BLL
 		public void Save()
 		{
 			// Wegschrijven van de data
+			_dataService.SavePublisher(Publisher);
+			Publisher=new PublisherModel();
+
 		}
 
 		// private methods
@@ -90,7 +109,7 @@ namespace MyBooks.BLL
 
 			Publisher = Publishers[1] as PublisherModel;
 
-	
+
 		}
 
 
