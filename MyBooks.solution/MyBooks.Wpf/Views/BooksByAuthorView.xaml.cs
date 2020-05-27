@@ -10,32 +10,26 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
-using MyBooks.BLL;
+using MyBooks.BLL.ViewModels;
 
 namespace MyBooks.Wpf.Views
 {
 	/// <summary>
-	/// Interaction logic for PublisherView.xaml
+	/// Interaction logic for BooksByAuthorView.xaml
 	/// </summary>
-	public partial class PublisherView : Page
+	public partial class BooksByAuthorView : Page
 	{
-
-
-		public PublisherView()
+		public BooksByAuthorView()
 		{
 			InitializeComponent();
-
-
 		}
 
-
-		private void SaveButton_OnClick(object sender, RoutedEventArgs e)
+		private void ListBox_MouseDoubleClick(object sender, MouseButtonEventArgs e)
 		{
-
-
+			var msg = ((BooksByAuthorViewModel) DataContext).SelectedBook.Title;
+			MessageBox.Show(msg, "Selected book",MessageBoxButton.OK,MessageBoxImage.Information);
 		}
-
-		
 	}
 }

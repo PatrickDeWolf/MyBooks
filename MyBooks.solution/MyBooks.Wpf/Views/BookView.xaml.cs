@@ -10,32 +10,19 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
-using MyBooks.BLL;
 
 namespace MyBooks.Wpf.Views
 {
 	/// <summary>
-	/// Interaction logic for PublisherView.xaml
+	/// Interaction logic for BookView.xaml
 	/// </summary>
-	public partial class PublisherView : Page
+	public partial class BookView : Page
 	{
-
-
-		public PublisherView()
+		public BookView()
 		{
 			InitializeComponent();
-
-
 		}
-
-
-		private void SaveButton_OnClick(object sender, RoutedEventArgs e)
-		{
-
-
-		}
-
-		
 	}
 }

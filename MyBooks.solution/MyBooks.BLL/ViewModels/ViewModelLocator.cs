@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using DannyVN.Library;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Ioc;
 using MyBooks.BLL.ViewModels;
@@ -10,11 +11,18 @@ namespace MyBooks.BLL
 {
 	public class ViewModelLocator
 	{
+		// voor Blend
+		private static bool initialized;
 
 		static ViewModelLocator()
 		{
-			// declaratie van de Inversion of Control (IoC) container
-			//ServiceLocator. 
+			//Fix to keep blend happy
+			if (initialized)
+			{
+				return;
+			}
+			initialized = true;
+
 
 			if (ViewModelBase.IsInDesignModeStatic)
 			{
@@ -41,14 +49,23 @@ namespace MyBooks.BLL
 
 			// registratie van de VIewModels
 			// Register<T>
+			SimpleIoc.Default.Register<MainViewModel>(); // Bind to MainView -> start page of the app
+			SimpleIoc.Default.Register<BooksByAuthorViewModel>();
+
 			SimpleIoc.Default.Register<PublisherViewModel>();
 			SimpleIoc.Default.Register<AuthorViewModel>();
-			SimpleIoc.Default.Register<BooksViewModel>();
-			SimpleIoc.Default.Register<BookViewModel>();
+		//	SimpleIoc.Default.Register<BooksViewModel>();
+			SimpleIoc.Default.Register<BookViewModel>(true);
+
+			SetupNavigation();
 
 		}
 
 		// Creatie van de ViewModel Properties --> voor binding met de View
+		public MainViewModel MainVm => SimpleIoc.Default.GetInstance<MainViewModel>();
+
+		public BooksByAuthorViewModel HomeVm => SimpleIoc.Default.GetInstance<BooksByAuthorViewModel>();
+
 		public PublisherViewModel PublisherVm
 		{
 			get { return SimpleIoc.Default.GetInstance<PublisherViewModel>(); }
@@ -59,12 +76,23 @@ namespace MyBooks.BLL
 			get { return SimpleIoc.Default.GetInstance<AuthorViewModel>(); }
 		}
 
-		public BooksViewModel BooksVm
-		{
-			get { return SimpleIoc.Default.GetInstance<BooksViewModel>(); }
-		}
+	//	public BooksViewModel BooksVm
+		//{
+		//	get { return SimpleIoc.Default.GetInstance<BooksViewModel>(); }
+		//}
 
 		public BookViewModel BookVm => SimpleIoc.Default.GetInstance<BookViewModel>();
+
+		public static void Cleanup()
+		{
+		}
+
+		private static void SetupNavigation()
+		{
+			var navigationService = new NavigationService<NavigationPageEnum>();
+			navigationService.ConfigurePages();
+			SimpleIoc.Default.Register<INavigationService<NavigationPageEnum>>(() => navigationService);
+		}
 
 	}// end ViewModelLocator
 

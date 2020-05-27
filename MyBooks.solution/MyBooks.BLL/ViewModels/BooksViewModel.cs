@@ -125,10 +125,7 @@ namespace MyBooks.BLL
 			_dataService = dataService;
 
 			// registration of the Messages
-			Messenger.Default.Register<ErrorMessage>
-				(
-					this,msg => ErrorMessage=msg.Message
-				);
+	
 
 			Messenger.Default.Register<BookMessage>
 				(

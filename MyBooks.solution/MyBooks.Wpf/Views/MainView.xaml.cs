@@ -11,31 +11,17 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using MyBooks.BLL;
 
 namespace MyBooks.Wpf.Views
 {
 	/// <summary>
-	/// Interaction logic for PublisherView.xaml
+	/// Interaction logic for MainView.xaml
 	/// </summary>
-	public partial class PublisherView : Page
+	public partial class MainView : Window
 	{
-
-
-		public PublisherView()
+		public MainView()
 		{
 			InitializeComponent();
-
-
 		}
-
-
-		private void SaveButton_OnClick(object sender, RoutedEventArgs e)
-		{
-
-
-		}
-
-		
 	}
 }
